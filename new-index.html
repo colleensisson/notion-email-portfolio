@@ -3,165 +3,312 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Colleen Sisson — Email Portfolio</title>
-  <meta name="description" content="Minimal, modern, editorial email portfolio by Colleen Sisson."/>
+  <title>Colleen Sisson — Portfolio</title>
+  <meta name="description" content="Email portfolio by Colleen Sisson."/>
   <style>
     :root{
-      --bg:#fcfcfc; --ink:#1a1a1a; --muted:#6f6f6f; --line:#e9e9e9;
-      --card:#ffffff; --shadow:0 12px 34px rgba(0,0,0,.06);
-      --radius:18px; --turq:#4cc7c7; --focus:#0a84ff;
+      --bg:#ffffff;
+      --ink:#151515;
+      --muted:#6f6f6f;
+      --rule:#e8e8e8;
+      --turq:#3fc2c2; /* amulet */
+      --max:1080px;
+
+      --fs-xxs:11.5px;
+      --fs-xs:13px;
+      --fs-s:15px;
+      --fs-m:18px;
+      --fs-l:26px;
+      --fs-xl:34px;
     }
+
     *{box-sizing:border-box}
-    body{margin:0;background:var(--bg);color:var(--ink);
-      font:16px/1.6 Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial}
-    a{color:inherit;text-decoration:none}
-    .wrap{max-width:1120px;margin:0 auto;padding:28px 20px 80px}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--ink);
+      font:16px/1.6 Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial;
+      -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+    }
+    a{color:inherit; text-decoration:none}
+    .wrap{max-width:var(--max); margin:0 auto; padding:28px 20px 80px}
 
-    header{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;
-      padding:28px 0 20px;border-bottom:1px solid var(--line)}
-    .brand h1{margin:0;font-size:22px;font-weight:600;letter-spacing:-.2px}
-    .brand p{margin:6px 0 0;color:var(--muted);font-size:14px}
-    nav{display:flex;gap:10px;flex-wrap:wrap}
-    .pill{padding:8px 12px;border:1px solid var(--line);border-radius:999px;background:#fff;font-size:13px;cursor:pointer}
-    .pill[aria-pressed="true"]{border-color:var(--ink)}
-    .pill:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+    /* Header */
+    header{
+      padding:36px 0 22px;
+      border-bottom:1px solid var(--rule);
+      display:flex; align-items:flex-end; justify-content:space-between; gap:16px;
+    }
+    .brand h1{
+      margin:0; font-weight:600; letter-spacing:-.2px; font-size:var(--fs-xl); line-height:1.2;
+    }
+    .brand small{
+      display:block; margin-top:4px; font-size:var(--fs-xs); color:var(--muted); letter-spacing:.3px;
+    }
+    .meta-nav{font-size:var(--fs-xs); color:var(--muted)}
+    .meta-nav a{padding:4px 6px}
 
-    .grid{display:grid;gap:18px;margin-top:18px;
-      grid-template-columns:repeat(auto-fill,minmax(280px,1fr))}
-    .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
-      box-shadow:var(--shadow);padding:12px;display:flex;flex-direction:column;gap:10px;position:relative;transition:transform .15s ease}
-    .card:hover{transform:translateY(-3px)}
-    .thumb{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:14px;border:1px solid var(--line);background:#f5f5f5}
-    .meta{display:flex;align-items:center;justify-content:space-between}
-    .category{font-size:12px;text-transform:uppercase;letter-spacing:.5px;color:var(--muted)}
-    .title{margin:0;font-size:16px;line-height:1.35;font-weight:600}
-    .amulet{position:absolute;right:12px;bottom:12px;width:10px;height:10px;border-radius:50%;
-      background:var(--turq);box-shadow:0 0 0 4px rgba(76,199,199,.12);cursor:pointer;border:0}
-    .amulet:focus-visible{outline:2px solid var(--focus);outline-offset:3px}
+    /* Section */
+    section{padding:30px 0}
+    .section-head{
+      display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:14px;
+    }
+    .section-title{
+      font-size:var(--fs-xxs); letter-spacing:.22em; text-transform:uppercase; color:#444;
+    }
+    .rule{border-top:1px solid var(--rule); margin-top:10px}
 
-    footer{border-top:1px solid var(--line);margin-top:30px;padding:18px 0;color:var(--muted);font-size:13px;
-      display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+    /* Grid (quiet, editorial) */
+    .grid{
+      display:grid; gap:22px;
+      grid-template-columns:repeat(auto-fill, minmax(300px, 1fr));
+      align-items:start;
+    }
 
-    .modal{position:fixed;inset:0;display:none;place-items:center;background:rgba(10,10,10,.62);backdrop-filter:blur(2px);z-index:10}
+    figure{
+      margin:0; display:flex; flex-direction:column; gap:10px;
+    }
+    .thumb{
+      width:100%; aspect-ratio:16/10; object-fit:cover; border:1px solid var(--rule);
+      border-radius:10px; background:#f7f7f7;
+      transition:transform .15s ease, filter .15s ease;
+    }
+    a:hover .thumb{ transform:translateY(-2px); filter:saturate(1.02) }
+    figcaption{display:flex; align-items:center; gap:8px; flex-wrap:wrap}
+    .amulet{
+      width:8px; height:8px; border-radius:50%; background:var(--turq);
+      box-shadow:0 0 0 3px rgba(63,194,194,.12); flex:0 0 auto;
+    }
+    .title{margin:0; font-size:var(--fs-m); line-height:1.35; font-weight:600}
+    .subtitle{font-size:var(--fs-xs); color:var(--muted); letter-spacing:.02em}
+
+    footer{
+      border-top:1px solid var(--rule); margin-top:40px; padding:18px 0;
+      font-size:var(--fs-xs); color:var(--muted); display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap;
+    }
+
+    /* Modal */
+    .modal{position:fixed; inset:0; display:none; place-items:center;
+           background:rgba(10,10,10,.66); backdrop-filter:blur(1.5px); z-index:20}
     .modal.open{display:grid}
-    .panel{width:min(1000px,92vw);height:min(86vh,900px);background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.35);display:flex;flex-direction:column}
-    .panel header{display:flex;align-items:center;gap:12px;padding:12px 14px;border-bottom:1px solid var(--line)}
-    .panel .meta-line{display:flex;gap:10px;align-items:center;color:var(--muted);font-size:13px}
-    .close{margin-left:auto;border:1px solid var(--line);border-radius:999px;padding:6px 10px;background:#fff;cursor:pointer}
+    .panel{
+      width:min(1000px,92vw); height:min(86vh,900px);
+      background:#fff; border-radius:12px; overflow:hidden; display:flex; flex-direction:column;
+      border:1px solid var(--rule);
+    }
+    .panel header{display:flex; align-items:center; gap:10px; padding:10px 12px; border-bottom:1px solid var(--rule)}
+    .panel .h{font-weight:600; font-size:var(--fs-s)}
+    .panel .c{font-size:var(--fs-xs); color:var(--muted)}
+    .x{margin-left:auto; font-size:var(--fs-xs); padding:6px 10px; border:1px solid var(--rule); border-radius:8px; background:#fff; cursor:pointer}
     .frame{flex:1 1 auto}
-    iframe{border:0;width:100%;height:100%;background:#fff}
-    .actions{border-top:1px solid var(--line);padding:10px 14px;display:flex;justify-content:flex-end;gap:10px;background:#fafafa}
-    .btn{border:1px solid var(--line);background:#fff;padding:10px 14px;border-radius:10px;cursor:pointer;font-size:14px}
-    .btn.primary{border-color:var(--ink)}
-    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    iframe{border:0; width:100%; height:100%}
+    .actions{border-top:1px solid var(--rule); padding:10px 12px; display:flex; justify-content:flex-end}
+    .btn{font-size:var(--fs-s); padding:8px 12px; border:1px solid var(--ink); border-radius:9px; background:#fff; cursor:pointer}
   </style>
 </head>
 <body>
   <div class="wrap">
     <header>
       <div class="brand">
-        <h1>Colleen Sisson — Email Portfolio</h1>
-        <p>Minimal, modern, editorial campaigns. Built with quiet details.</p>
+        <h1>Colleen Sisson</h1>
+        <small>Email design & direction</small>
       </div>
-      <nav aria-label="Collections">
-        <button class="pill" aria-pressed="true" data-filter="all">All</button>
-        <button class="pill" aria-pressed="false" data-filter="Labor Day">Labor Day</button>
-        <button class="pill" aria-pressed="false" data-filter="Father’s Day">Father’s Day</button>
-        <button class="pill" aria-pressed="false" data-filter="Foot Health Month">Foot Health</button>
-        <button class="pill" aria-pressed="false" data-filter="Seasonal">Seasonal</button>
-        <button class="pill" aria-pressed="false" data-filter="Black Friday">Black Friday</button>
+      <nav class="meta-nav" aria-label="Meta">
+        <a href="#labor-day">Labor Day</a>
+        <a href="#fathers-day">Father’s Day</a>
+        <a href="#foot-health">Foot Health</a>
+        <a href="#seasonal">Seasonal</a>
+        <a href="#black-friday">Black Friday</a>
       </nav>
     </header>
 
-    <section class="grid" id="grid" aria-live="polite"></section>
+    <!-- Labor Day -->
+    <section id="labor-day">
+      <div class="section-head">
+        <div class="section-title">Labor Day</div>
+      </div>
+      <div class="grid">
+        <figure data-cat="Labor Day">
+          <a href="laborday-e1.html" target="_blank" rel="noopener" data-title="Labor Day → Less labor for your body">
+            <img class="thumb" src="laborday-e1.png" alt="Labor Day → Less labor for your body">
+          </a>
+          <figcaption>
+            <span class="amulet" data-href="laborday-e1.html" aria-label="Preview"></span>
+            <h3 class="title">Labor Day → Less labor for your body</h3>
+          </figcaption>
+          <div class="subtitle">Campaign • Labor Day</div>
+        </figure>
+      </div>
+      <div class="rule"></div>
+    </section>
+
+    <!-- Father’s Day -->
+    <section id="fathers-day">
+      <div class="section-head">
+        <div class="section-title">Father’s Day</div>
+      </div>
+      <div class="grid">
+        <figure data-cat="Father’s Day">
+          <a href="fathers-day-e2.html" target="_blank" rel="noopener" data-title="Gear that supports the gear">
+            <img class="thumb" src="fathers-day-e2.png" alt="Gear that supports the gear">
+          </a>
+          <figcaption>
+            <span class="amulet" data-href="fathers-day-e2.html"></span>
+            <h3 class="title">Gear that supports the gear</h3>
+          </figcaption>
+          <div class="subtitle">Campaign • Father’s Day</div>
+        </figure>
+
+        <figure data-cat="Father’s Day">
+          <a href="all-in-the-kit-fday-e4.html" target="_blank" rel="noopener" data-title="It's all in the Kit">
+            <img class="thumb" src="all-in-the-kit-fday-e4.png" alt="It's all in the Kit">
+          </a>
+          <figcaption>
+            <span class="amulet" data-href="all-in-the-kit-fday-e4.html"></span>
+            <h3 class="title">It’s all in the Kit</h3>
+          </figcaption>
+          <div class="subtitle">Campaign • Father’s Day</div>
+        </figure>
+      </div>
+      <div class="rule"></div>
+    </section>
+
+    <!-- Foot Health Month -->
+    <section id="foot-health">
+      <div class="section-head">
+        <div class="section-title">Foot Health Month</div>
+      </div>
+      <div class="grid">
+        <figure data-cat="Foot Health Month">
+          <a href="foot-health-2.html" target="_blank" rel="noopener" data-title="Full-foot calm">
+            <img class="thumb" src="foot-health-2.png" alt="Full-foot calm">
+          </a>
+          <figcaption>
+            <span class="amulet" data-href="foot-health-2.html"></span>
+            <h3 class="title">Full-foot calm</h3>
+          </figcaption>
+          <div class="subtitle">Campaign • Foot Health Month</div>
+        </figure>
+
+        <figure data-cat="Foot Health Month">
+          <a href="foot-health-4.html" target="_blank" rel="noopener" data-title="Footnotes">
+            <img class="thumb" src="foot-health-4.png" alt="Footnotes">
+          </a>
+          <figcaption>
+            <span class="amulet" data-href="foot-health-4.html"></span>
+            <h3 class="title">Footnotes</h3>
+          </figcaption>
+          <div class="subtitle">Campaign • Foot Health Month</div>
+        </figure>
+      </div>
+      <div class="rule"></div>
+    </section>
+
+    <!-- Seasonal -->
+    <section id="seasonal">
+      <div class="section-head">
+        <div class="section-title">Seasonal</div>
+      </div>
+      <div class="grid">
+        <figure data-cat="Seasonal">
+          <a href="october-reset.html" target="_blank" rel="noopener" data-title="October reset">
+            <img class="thumb" src="october-reset.png" alt="October reset">
+          </a>
+          <figcaption>
+            <span class="amulet" data-href="october-reset.html"></span>
+            <h3 class="title">October reset</h3>
+          </figcaption>
+          <div class="subtitle">Campaign • Seasonal</div>
+        </figure>
+
+        <figure data-cat="Seasonal">
+          <a href="fall-bogo.html" target="_blank" rel="noopener" data-title="Fall BOGO">
+            <img class="thumb" src="fall-bogo.png" alt="Fall BOGO">
+          </a>
+          <figcaption>
+            <span class="amulet" data-href="fall-bogo.html"></span>
+            <h3 class="title">Fall BOGO</h3>
+          </figcaption>
+          <div class="subtitle">Campaign • Seasonal</div>
+        </figure>
+
+        <figure data-cat="Seasonal">
+          <a href="extra-glo-extra-off.html" target="_blank" rel="noopener" data-title="Extra off. Extra glo.">
+            <img class="thumb" src="extra-glo-extra-off.png" alt="Extra off. Extra glo.">
+          </a>
+          <figcaption>
+            <span class="amulet" data-href="extra-glo-extra-off.html"></span>
+            <h3 class="title">Extra off. Extra glo.</h3>
+          </figcaption>
+          <div class="subtitle">Campaign • Seasonal</div>
+        </figure>
+      </div>
+      <div class="rule"></div>
+    </section>
+
+    <!-- Black Friday -->
+    <section id="black-friday">
+      <div class="section-head">
+        <div class="section-title">Black Friday</div>
+      </div>
+      <div class="grid">
+        <figure data-cat="Black Friday">
+          <a href="blkfri-55-off-wraps.html" target="_blank" rel="noopener" data-title="Wraps">
+            <img class="thumb" src="blkfri-55-off-wraps.png" alt="Wraps">
+          </a>
+          <figcaption>
+            <span class="amulet" data-href="blkfri-55-off-wraps.html"></span>
+            <h3 class="title">Wraps</h3>
+          </figcaption>
+          <div class="subtitle">Campaign • Black Friday</div>
+        </figure>
+
+        <figure data-cat="Black Friday">
+          <a href="blkfri-70-off-devices.html" target="_blank" rel="noopener" data-title="Black friday">
+            <img class="thumb" src="blkfri-70-off-devices.png" alt="Black friday">
+          </a>
+          <figcaption>
+            <span class="amulet" data-href="blkfri-70-off-devices.html"></span>
+            <h3 class="title">Black friday</h3>
+          </figcaption>
+          <div class="subtitle">Campaign • Black Friday</div>
+        </figure>
+      </div>
+      <div class="rule"></div>
+    </section>
 
     <footer>
       <div>© <span id="year"></span> Colleen Sisson</div>
-      <div>Signature mark: <span title="amulet" style="display:inline-block;width:10px;height:10px;background:var(--turq);border-radius:50%;vertical-align:-1px;"></span></div>
+      <div>Portfolio</div>
     </footer>
   </div>
 
-  <div class="modal" id="modal" aria-hidden="true" aria-label="Email preview modal">
+  <!-- Minimal modal -->
+  <div class="modal" id="modal" aria-hidden="true">
     <div class="panel" role="dialog" aria-modal="true">
       <header>
-        <div class="meta-line">
-          <strong id="m-title">Title</strong>
-          <span id="m-cat">•</span>
-        </div>
-        <button class="close" id="m-close" aria-label="Close">Close</button>
+        <div class="h" id="m-title">Title</div>
+        <div class="c" id="m-cat">• Category</div>
+        <button class="x" id="m-close" aria-label="Close">Close</button>
       </header>
       <div class="frame"><iframe id="m-frame" title="Email preview"></iframe></div>
       <div class="actions">
-        <a id="m-open" class="btn primary" target="_blank" rel="noopener">Open full email</a>
+        <a id="m-open" class="btn" target="_blank" rel="noopener">Open full email</a>
       </div>
     </div>
   </div>
 
   <script>
-    // Exact order you specified (top to bottom). Basename must match .html and .png.
-    const items = [
-      // Labor Day
-      { base:"laborday-e1", title:"Labor Day → Less labor for your body", cat:"Labor Day" },
-
-      // Father’s Day
-      { base:"fathers-day-e2", title:"Gear that supports the gear", cat:"Father’s Day" },
-      { base:"all-in-the-kit-fday-e4", title:"It's all in the Kit", cat:"Father’s Day" },
-
-      // Foot Health Month
-      { base:"foot-health-2", title:"Full-foot calm", cat:"Foot Health Month" },
-      { base:"foot-health-4", title:"Footnotes", cat:"Foot Health Month" },
-
-      // Seasonal
-      { base:"october-reset", title:"October reset", cat:"Seasonal" },
-      { base:"fall-bogo", title:"Fall BOGO", cat:"Seasonal" },
-      { base:"extra-glo-extra-off", title:"Extra off. Extra glo.", cat:"Seasonal" },
-
-      // Black Friday
-      { base:"blkfri-55-off-wraps", title:"Wraps", cat:"Black Friday" },
-      { base:"blkfri-70-off-devices", title:"Black friday", cat:"Black Friday" },
-    ];
-
-    const grid = document.getElementById('grid');
-
-    function cardHTML(it){
-      const html = `${it.base}.html`;
-      const png  = `${it.base}.png`;
-      return `
-        <article class="card" data-cat="${it.cat}">
-          <a href="${html}" target="_blank" rel="noopener" aria-label="${it.title}">
-            <img class="thumb" src="${png}" alt="${it.title} thumbnail"
-                 onerror="this.style.display='none'">
-          </a>
-          <div class="meta"><span class="category">${it.cat}</span></div>
-          <h3 class="title">${it.title}</h3>
-          <button class="amulet" title="Quick preview" data-href="${html}" aria-label="Preview ${it.title}"></button>
-        </article>`;
-    }
-
-    function render(filter="all"){
-      grid.innerHTML = items
-        .filter(i => filter==="all" || i.cat===filter)
-        .map(cardHTML).join("");
-    }
-    render();
-
-    // Filters
-    document.querySelectorAll('.pill').forEach(btn=>{
-      btn.addEventListener('click', ()=>{
-        document.querySelectorAll('.pill').forEach(b=>b.setAttribute('aria-pressed','false'));
-        btn.setAttribute('aria-pressed','true');
-        render(btn.dataset.filter);
-      });
-    });
-
-    // Modal
+    // open modal via amulet or by clicking an image (preview)
     const modal = document.getElementById('modal');
     const mTitle = document.getElementById('m-title');
-    const mCat = document.getElementById('m-cat');
+    const mCat   = document.getElementById('m-cat');
     const mFrame = document.getElementById('m-frame');
-    const mOpen = document.getElementById('m-open');
+    const mOpen  = document.getElementById('m-open');
+    const mClose = document.getElementById('m-close');
 
-    function openModal(title,cat,href){
+    function openModal(title, cat, href){
       mTitle.textContent = title;
       mCat.textContent = "• " + cat;
       mFrame.src = href;
@@ -174,15 +321,27 @@
       modal.setAttribute('aria-hidden','true');
       mFrame.removeAttribute('src');
     }
-    document.addEventListener('click', e=>{
-      const a = e.target.closest('.amulet');
-      if(a){
-        const card = a.closest('.card');
-        openModal(card.querySelector('.title').textContent, card.dataset.cat, a.dataset.href);
+
+    document.addEventListener('click', (e)=>{
+      // amulet click
+      const am = e.target.closest('.amulet');
+      if(am){
+        const fig = am.closest('figure');
+        const a   = fig.querySelector('a');
+        openModal(a.dataset.title, fig.dataset.cat, a.getAttribute('href'));
       }
-      if(e.target.id==='m-close' || e.target===modal) closeModal();
+      // click outside (backdrop)
+      if(e.target === modal) closeModal();
+      // images: hold CMD/CTRL to open in new tab, plain click to preview
+      const imgLink = e.target.closest('a');
+      if(imgLink && imgLink.querySelector('.thumb') && !(e.metaKey||e.ctrlKey)){
+        e.preventDefault();
+        const fig = imgLink.closest('figure');
+        openModal(imgLink.dataset.title, fig.dataset.cat, imgLink.getAttribute('href'));
+      }
     });
     document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeModal(); });
+    mClose.addEventListener('click', closeModal);
 
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
