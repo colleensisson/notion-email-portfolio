@@ -12,7 +12,7 @@
       --muted:#6f6f6f;
       --rule:#e8e8e8;
       --turq:#3fc2c2; /* amulet */
-      --max:1180px;
+      --max:1080px;
 
       --fs-xxs:11.5px;
       --fs-xs:13px;
@@ -32,281 +32,256 @@
       -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
     }
     a{color:inherit; text-decoration:none}
-
-    /* ===== Shell ===== */
     .wrap{max-width:var(--max); margin:0 auto; padding:28px 20px 80px}
 
-    header.site{
-      position:sticky; top:0; z-index:30;
-      padding:18px 0 14px; background:var(--bg);
+    /* Header */
+    header{
+      padding:36px 0 22px;
       border-bottom:1px solid var(--rule);
       display:flex; align-items:flex-end; justify-content:space-between; gap:16px;
-      backdrop-filter:saturate(1.06) blur(3px);
     }
-    .brand h1{ margin:0; font-weight:600; letter-spacing:-.2px; font-size:var(--fs-xl); line-height:1.2 }
-    .brand small{ display:block; margin-top:4px; font-size:var(--fs-xs); color:var(--muted); letter-spacing:.3px }
-
-    /* ===== Layout: desktop rail + main ===== */
-    .layout{ display:grid; grid-template-columns: 240px 1fr; gap:28px; align-items:start; margin-top:18px }
-
-    /* Side rail (desktop) */
-    .rail{ position:sticky; top:86px; align-self:start; border-right:1px solid var(--rule); padding-right:16px }
-    .rail .h{ font-size:var(--fs-xxs); letter-spacing:.22em; text-transform:uppercase; color:#444; margin-bottom:10px }
-    .rail .list{ display:flex; flex-direction:column; gap:6px; padding-right:6px }
-    .rail a{
-      position:relative; display:flex; align-items:center; gap:10px;
-      padding:8px 10px 8px 14px; border-radius:12px; color:#444; font-size:var(--fs-s);
-      transition:background .18s ease, color .18s ease, transform .18s ease;
-      outline:none;
+    .brand h1{
+      margin:0; font-weight:600; letter-spacing:-.2px; font-size:var(--fs-xl); line-height:1.2;
     }
-    .rail a:hover{ background:#f7f7f7 }
-    .rail a:focus-visible{ box-shadow:0 0 0 2px rgba(63,194,194,.28) }
-    .rail a .dot{ width:8px; height:8px; border-radius:50%; background:var(--turq); box-shadow:0 0 0 3px rgba(63,194,194,.12) }
-    .rail a.is-active{ color:var(--ink); font-weight:600; background:#f7f7f7 }
-    .rail .bar{ position:absolute; left:-1px; width:2px; top:6px; bottom:6px; border-radius:2px; background:transparent; transition:background .18s ease }
-    .rail a.is-active .bar{ background:var(--turq) }
+    .brand small{
+      display:block; margin-top:4px; font-size:var(--fs-xs); color:var(--muted); letter-spacing:.3px;
+    }
+    .meta-nav{font-size:var(--fs-xs); color:var(--muted)}
+    .meta-nav a{padding:4px 6px}
 
-    /* Chip bar (mobile) */
-    .chips{ display:none; margin-top:14px }
-    .chips .track{ position:relative; display:flex; gap:6px; padding:4px; border:1px solid var(--rule); border-radius:999px; background:rgba(245,245,245,.6); overflow:auto; scrollbar-width:none }
-    .chips .track::-webkit-scrollbar{ display:none }
-    .chips a{ display:inline-flex; align-items:center; justify-content:center; height:34px; padding:0 12px; border-radius:999px; color:#444; font-size:var(--fs-xs) }
-    .chips a.is-active{ font-weight:600; color:var(--ink); background:#fff; border:1px solid var(--rule) }
-
-    /* Sections */
-    section{ padding:30px 0 }
-    .section-head{ display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:14px }
-    .section-title{ font-size:var(--fs-xxs); letter-spacing:.22em; text-transform:uppercase; color:#444 }
-    .rule{ border-top:1px solid var(--rule); margin-top:10px }
+    /* Section */
+    section{padding:30px 0}
+    .section-head{
+      display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:14px;
+    }
+    .section-title{
+      font-size:var(--fs-xxs); letter-spacing:.22em; text-transform:uppercase; color:#444;
+    }
+    .rule{border-top:1px solid var(--rule); margin-top:10px}
 
     /* Grid (quiet, editorial) */
-    .grid{ display:grid; gap:22px; grid-template-columns:repeat(auto-fill, minmax(300px, 1fr)); align-items:start }
+    .grid{
+      display:grid; gap:22px;
+      grid-template-columns:repeat(auto-fill, minmax(300px, 1fr));
+      align-items:start;
+    }
 
-    figure{ margin:0; display:flex; flex-direction:column; gap:10px }
-    .thumb{ width:100%; aspect-ratio:16/10; object-fit:cover; border:1px solid var(--rule); border-radius:10px; background:#f7f7f7; transition:transform .15s ease, filter .15s ease }
+    figure{
+      margin:0; display:flex; flex-direction:column; gap:10px;
+    }
+    .thumb{
+      width:100%; aspect-ratio:16/10; object-fit:cover; border:1px solid var(--rule);
+      border-radius:10px; background:#f7f7f7;
+      transition:transform .15s ease, filter .15s ease;
+    }
     a:hover .thumb{ transform:translateY(-2px); filter:saturate(1.02) }
-    figcaption{ display:flex; align-items:center; gap:8px; flex-wrap:wrap }
-    .amulet{ width:8px; height:8px; border-radius:50%; background:var(--turq); box-shadow:0 0 0 3px rgba(63,194,194,.12); flex:0 0 auto }
-    .title{ margin:0; font-size:var(--fs-m); line-height:1.35; font-weight:600 }
-    .subtitle{ font-size:var(--fs-xs); color:var(--muted); letter-spacing:.02em }
+    figcaption{display:flex; align-items:center; gap:8px; flex-wrap:wrap}
+    .amulet{
+      width:8px; height:8px; border-radius:50%; background:var(--turq);
+      box-shadow:0 0 0 3px rgba(63,194,194,.12); flex:0 0 auto;
+    }
+    .title{margin:0; font-size:var(--fs-m); line-height:1.35; font-weight:600}
+    .subtitle{font-size:var(--fs-xs); color:var(--muted); letter-spacing:.02em}
 
-    footer{ border-top:1px solid var(--rule); margin-top:40px; padding:18px 0; font-size:var(--fs-xs); color:var(--muted); display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap }
+    footer{
+      border-top:1px solid var(--rule); margin-top:40px; padding:18px 0;
+      font-size:var(--fs-xs); color:var(--muted); display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap;
+    }
 
     /* Modal */
-    .modal{ position:fixed; inset:0; display:none; place-items:center; background:rgba(10,10,10,.66); backdrop-filter:blur(1.5px); z-index:40 }
-    .modal.open{ display:grid }
-    .panel{ width:min(1000px,92vw); height:min(86vh,900px); background:#fff; border-radius:12px; overflow:hidden; display:flex; flex-direction:column; border:1px solid var(--rule) }
-    .panel header{ display:flex; align-items:center; gap:10px; padding:10px 12px; border-bottom:1px solid var(--rule) }
-    .panel .h{ font-weight:600; font-size:var(--fs-s) }
-    .panel .c{ font-size:var(--fs-xs); color:var(--muted) }
-    .x{ margin-left:auto; font-size:var(--fs-xs); padding:6px 10px; border:1px solid var(--rule); border-radius:8px; background:#fff; cursor:pointer }
-    .frame{ flex:1 1 auto }
-    iframe{ border:0; width:100%; height:100% }
-    .actions{ border-top:1px solid var(--rule); padding:10px 12px; display:flex; justify-content:flex-end }
-    .btn{ font-size:var(--fs-s); padding:8px 12px; border:1px solid var(--ink); border-radius:9px; background:#fff; cursor:pointer }
-
-    /* Responsive */
-    @media (max-width: 1024px){
-      .layout{ grid-template-columns: 1fr }
-      .rail{ display:none }
-      .chips{ display:block }
+    .modal{position:fixed; inset:0; display:none; place-items:center;
+           background:rgba(10,10,10,.66); backdrop-filter:blur(1.5px); z-index:20}
+    .modal.open{display:grid}
+    .panel{
+      width:min(1000px,92vw); height:min(86vh,900px);
+      background:#fff; border-radius:12px; overflow:hidden; display:flex; flex-direction:column;
+      border:1px solid var(--rule);
     }
-
-    @media (max-width:640px){
-      .brand h1{ font-size:28px }
-    }
-
-    /* Reduced motion */
-    @media (prefers-reduced-motion: reduce){
-      a:hover .thumb{ transform:none }
-    }
+    .panel header{display:flex; align-items:center; gap:10px; padding:10px 12px; border-bottom:1px solid var(--rule)}
+    .panel .h{font-weight:600; font-size:var(--fs-s)}
+    .panel .c{font-size:var(--fs-xs); color:var(--muted)}
+    .x{margin-left:auto; font-size:var(--fs-xs); padding:6px 10px; border:1px solid var(--rule); border-radius:8px; background:#fff; cursor:pointer}
+    .frame{flex:1 1 auto}
+    iframe{border:0; width:100%; height:100%}
+    .actions{border-top:1px solid var(--rule); padding:10px 12px; display:flex; justify-content:flex-end}
+    .btn{font-size:var(--fs-s); padding:8px 12px; border:1px solid var(--ink); border-radius:9px; background:#fff; cursor:pointer}
   </style>
 </head>
 <body>
   <div class="wrap">
-    <header class="site">
+    <header>
       <div class="brand">
         <h1>Colleen Sisson</h1>
         <small>Email design & direction</small>
       </div>
-      <!-- Mobile chip bar -->
-      <nav class="chips" aria-label="Sections (mobile)">
-        <div class="track">
-          <a href="#labor-day">Labor Day</a>
-          <a href="#fathers-day">Father’s Day</a>
-          <a href="#foot-health">Foot Health</a>
-          <a href="#seasonal">Seasonal</a>
-          <a href="#black-friday">Black Friday</a>
-        </div>
+      <nav class="meta-nav" aria-label="Meta">
+        <a href="#labor-day">Labor Day</a>
+        <a href="#fathers-day">Father’s Day</a>
+        <a href="#foot-health">Foot Health</a>
+        <a href="#seasonal">Seasonal</a>
+        <a href="#black-friday">Black Friday</a>
       </nav>
     </header>
 
-    <div class="layout">
-      <!-- Side Rail (desktop) -->
-      <aside class="rail" aria-label="Sections (desktop)">
-        <div class="h">Browse</div>
-        <nav class="list">
-          <a href="#labor-day"><span class="bar" aria-hidden="true"></span><span class="dot" aria-hidden="true"></span> Labor Day</a>
-          <a href="#fathers-day"><span class="bar" aria-hidden="true"></span><span class="dot" aria-hidden="true"></span> Father’s Day</a>
-          <a href="#foot-health"><span class="bar" aria-hidden="true"></span><span class="dot" aria-hidden="true"></span> Foot Health</a>
-          <a href="#seasonal"><span class="bar" aria-hidden="true"></span><span class="dot" aria-hidden="true"></span> Seasonal</a>
-          <a href="#black-friday"><span class="bar" aria-hidden="true"></span><span class="dot" aria-hidden="true"></span> Black Friday</a>
-        </nav>
-      </aside>
+    <!-- Labor Day -->
+    <section id="labor-day">
+      <div class="section-head">
+        <div class="section-title">Labor Day</div>
+      </div>
+      <div class="grid">
+        <figure data-cat="Labor Day">
+          <a href="laborday-e1.html" target="_blank" rel="noopener" data-title="Labor Day → Less labor for your body">
+            <img class="thumb" src="laborday-e1.png" alt="Labor Day → Less labor for your body">
+          </a>
+          <figcaption>
+            <span class="amulet" data-href="laborday-e1.html" aria-label="Preview"></span>
+            <h3 class="title">Labor Day → Less labor for your body</h3>
+          </figcaption>
+          <div class="subtitle">Campaign • Labor Day</div>
+        </figure>
+      </div>
+      <div class="rule"></div>
+    </section>
 
-      <!-- Main content -->
-      <main>
-        <!-- Labor Day -->
-        <section id="labor-day">
-          <div class="section-head"><div class="section-title">Labor Day</div></div>
-          <div class="grid">
-            <figure data-cat="Labor Day">
-              <a href="laborday-e1.html" target="_blank" rel="noopener" data-title="Labor Day → Less labor for your body">
-                <img class="thumb" src="laborday-e1.png" alt="Labor Day → Less labor for your body">
-              </a>
-              <figcaption>
-                <span class="amulet" data-href="laborday-e1.html" aria-label="Preview"></span>
-                <h3 class="title">Labor Day → Less labor for your body</h3>
-              </figcaption>
-              <div class="subtitle">Campaign • Labor Day</div>
-            </figure>
-          </div>
-          <div class="rule"></div>
-        </section>
+    <!-- Father’s Day -->
+    <section id="fathers-day">
+      <div class="section-head">
+        <div class="section-title">Father’s Day</div>
+      </div>
+      <div class="grid">
+        <figure data-cat="Father’s Day">
+          <a href="fathers-day-e2.html" target="_blank" rel="noopener" data-title="Gear that supports the gear">
+            <img class="thumb" src="fathers-day-e2.png" alt="Gear that supports the gear">
+          </a>
+          <figcaption>
+            <span class="amulet" data-href="fathers-day-e2.html"></span>
+            <h3 class="title">Gear that supports the gear</h3>
+          </figcaption>
+          <div class="subtitle">Campaign • Father’s Day</div>
+        </figure>
 
-        <!-- Father’s Day -->
-        <section id="fathers-day">
-          <div class="section-head"><div class="section-title">Father’s Day</div></div>
-          <div class="grid">
-            <figure data-cat="Father’s Day">
-              <a href="fathers-day-e2.html" target="_blank" rel="noopener" data-title="Gear that supports the gear">
-                <img class="thumb" src="fathers-day-e2.png" alt="Gear that supports the gear">
-              </a>
-              <figcaption>
-                <span class="amulet" data-href="fathers-day-e2.html"></span>
-                <h3 class="title">Gear that supports the gear</h3>
-              </figcaption>
-              <div class="subtitle">Campaign • Father’s Day</div>
-            </figure>
+        <figure data-cat="Father’s Day">
+          <a href="all-in-the-kit-fday-e4.html" target="_blank" rel="noopener" data-title="It's all in the Kit">
+            <img class="thumb" src="all-in-the-kit-fday-e4.png" alt="It's all in the Kit">
+          </a>
+          <figcaption>
+            <span class="amulet" data-href="all-in-the-kit-fday-e4.html"></span>
+            <h3 class="title">It’s all in the Kit</h3>
+          </figcaption>
+          <div class="subtitle">Campaign • Father’s Day</div>
+        </figure>
+      </div>
+      <div class="rule"></div>
+    </section>
 
-            <figure data-cat="Father’s Day">
-              <a href="all-in-the-kit-fday-e4.html" target="_blank" rel="noopener" data-title="It's all in the Kit">
-                <img class="thumb" src="all-in-the-kit-fday-e4.png" alt="It's all in the Kit">
-              </a>
-              <figcaption>
-                <span class="amulet" data-href="all-in-the-kit-fday-e4.html"></span>
-                <h3 class="title">It’s all in the Kit</h3>
-              </figcaption>
-              <div class="subtitle">Campaign • Father’s Day</div>
-            </figure>
-          </div>
-          <div class="rule"></div>
-        </section>
+    <!-- Foot Health Month -->
+    <section id="foot-health">
+      <div class="section-head">
+        <div class="section-title">Foot Health Month</div>
+      </div>
+      <div class="grid">
+        <figure data-cat="Foot Health Month">
+          <a href="foot-health-2.html" target="_blank" rel="noopener" data-title="Full-foot calm">
+            <img class="thumb" src="foot-health-2.png" alt="Full-foot calm">
+          </a>
+          <figcaption>
+            <span class="amulet" data-href="foot-health-2.html"></span>
+            <h3 class="title">Full-foot calm</h3>
+          </figcaption>
+          <div class="subtitle">Campaign • Foot Health Month</div>
+        </figure>
 
-        <!-- Foot Health Month -->
-        <section id="foot-health">
-          <div class="section-head"><div class="section-title">Foot Health Month</div></div>
-          <div class="grid">
-            <figure data-cat="Foot Health Month">
-              <a href="foot-health-2.html" target="_blank" rel="noopener" data-title="Full-foot calm">
-                <img class="thumb" src="foot-health-2.png" alt="Full-foot calm">
-              </a>
-              <figcaption>
-                <span class="amulet" data-href="foot-health-2.html"></span>
-                <h3 class="title">Full-foot calm</h3>
-              </figcaption>
-              <div class="subtitle">Campaign • Foot Health Month</div>
-            </figure>
+        <figure data-cat="Foot Health Month">
+          <a href="foot-health-4.html" target="_blank" rel="noopener" data-title="Footnotes">
+            <img class="thumb" src="foot-health-4.png" alt="Footnotes">
+          </a>
+          <figcaption>
+            <span class="amulet" data-href="foot-health-4.html"></span>
+            <h3 class="title">Footnotes</h3>
+          </figcaption>
+          <div class="subtitle">Campaign • Foot Health Month</div>
+        </figure>
+      </div>
+      <div class="rule"></div>
+    </section>
 
-            <figure data-cat="Foot Health Month">
-              <a href="foot-health-4.html" target="_blank" rel="noopener" data-title="Footnotes">
-                <img class="thumb" src="foot-health-4.png" alt="Footnotes">
-              </a>
-              <figcaption>
-                <span class="amulet" data-href="foot-health-4.html"></span>
-                <h3 class="title">Footnotes</h3>
-              </figcaption>
-              <div class="subtitle">Campaign • Foot Health Month</div>
-            </figure>
-          </div>
-          <div class="rule"></div>
-        </section>
+    <!-- Seasonal -->
+    <section id="seasonal">
+      <div class="section-head">
+        <div class="section-title">Seasonal</div>
+      </div>
+      <div class="grid">
+        <figure data-cat="Seasonal">
+          <a href="october-reset.html" target="_blank" rel="noopener" data-title="October reset">
+            <img class="thumb" src="october-reset.png" alt="October reset">
+          </a>
+          <figcaption>
+            <span class="amulet" data-href="october-reset.html"></span>
+            <h3 class="title">October reset</h3>
+          </figcaption>
+          <div class="subtitle">Campaign • Seasonal</div>
+        </figure>
 
-        <!-- Seasonal -->
-        <section id="seasonal">
-          <div class="section-head"><div class="section-title">Seasonal</div></div>
-          <div class="grid">
-            <figure data-cat="Seasonal">
-              <a href="october-reset.html" target="_blank" rel="noopener" data-title="October reset">
-                <img class="thumb" src="october-reset.png" alt="October reset">
-              </a>
-              <figcaption>
-                <span class="amulet" data-href="october-reset.html"></span>
-                <h3 class="title">October reset</h3>
-              </figcaption>
-              <div class="subtitle">Campaign • Seasonal</div>
-            </figure>
+        <figure data-cat="Seasonal">
+          <a href="fall-bogo.html" target="_blank" rel="noopener" data-title="Fall BOGO">
+            <img class="thumb" src="fall-bogo.png" alt="Fall BOGO">
+          </a>
+          <figcaption>
+            <span class="amulet" data-href="fall-bogo.html"></span>
+            <h3 class="title">Fall BOGO</h3>
+          </figcaption>
+          <div class="subtitle">Campaign • Seasonal</div>
+        </figure>
 
-            <figure data-cat="Seasonal">
-              <a href="fall-bogo.html" target="_blank" rel="noopener" data-title="Fall BOGO">
-                <img class="thumb" src="fall-bogo.png" alt="Fall BOGO">
-              </a>
-              <figcaption>
-                <span class="amulet" data-href="fall-bogo.html"></span>
-                <h3 class="title">Fall BOGO</h3>
-              </figcaption>
-              <div class="subtitle">Campaign • Seasonal</div>
-            </figure>
+        <figure data-cat="Seasonal">
+          <a href="extra-glo-extra-off.html" target="_blank" rel="noopener" data-title="Extra off. Extra glo.">
+            <img class="thumb" src="extra-glo-extra-off.png" alt="Extra off. Extra glo.">
+          </a>
+          <figcaption>
+            <span class="amulet" data-href="extra-glo-extra-off.html"></span>
+            <h3 class="title">Extra off. Extra glo.</h3>
+          </figcaption>
+          <div class="subtitle">Campaign • Seasonal</div>
+        </figure>
+      </div>
+      <div class="rule"></div>
+    </section>
 
-            <figure data-cat="Seasonal">
-              <a href="extra-glo-extra-off.html" target="_blank" rel="noopener" data-title="Extra off. Extra glo.">
-                <img class="thumb" src="extra-glo-extra-off.png" alt="Extra off. Extra glo.">
-              </a>
-              <figcaption>
-                <span class="amulet" data-href="extra-glo-extra-off.html"></span>
-                <h3 class="title">Extra off. Extra glo.</h3>
-              </figcaption>
-              <div class="subtitle">Campaign • Seasonal</div>
-            </figure>
-          </div>
-          <div class="rule"></div>
-        </section>
+    <!-- Black Friday -->
+    <section id="black-friday">
+      <div class="section-head">
+        <div class="section-title">Black Friday</div>
+      </div>
+      <div class="grid">
+        <figure data-cat="Black Friday">
+          <a href="blkfri-55-off-wraps.html" target="_blank" rel="noopener" data-title="Wraps">
+            <img class="thumb" src="blkfri-55-off-wraps.png" alt="Wraps">
+          </a>
+          <figcaption>
+            <span class="amulet" data-href="blkfri-55-off-wraps.html"></span>
+            <h3 class="title">Wraps</h3>
+          </figcaption>
+          <div class="subtitle">Campaign • Black Friday</div>
+        </figure>
 
-        <!-- Black Friday -->
-        <section id="black-friday">
-          <div class="section-head"><div class="section-title">Black Friday</div></div>
-          <div class="grid">
-            <figure data-cat="Black Friday">
-              <a href="blkfri-55-off-wraps.html" target="_blank" rel="noopener" data-title="Wraps">
-                <img class="thumb" src="blkfri-55-off-wraps.png" alt="Wraps">
-              </a>
-              <figcaption>
-                <span class="amulet" data-href="blkfri-55-off-wraps.html"></span>
-                <h3 class="title">Wraps</h3>
-              </figcaption>
-              <div class="subtitle">Campaign • Black Friday</div>
-            </figure>
+        <figure data-cat="Black Friday">
+          <a href="blkfri-70-off-devices.html" target="_blank" rel="noopener" data-title="Black friday">
+            <img class="thumb" src="blkfri-70-off-devices.png" alt="Black friday">
+          </a>
+          <figcaption>
+            <span class="amulet" data-href="blkfri-70-off-devices.html"></span>
+            <h3 class="title">Black friday</h3>
+          </figcaption>
+          <div class="subtitle">Campaign • Black Friday</div>
+        </figure>
+      </div>
+      <div class="rule"></div>
+    </section>
 
-            <figure data-cat="Black Friday">
-              <a href="blkfri-70-off-devices.html" target="_blank" rel="noopener" data-title="Black friday">
-                <img class="thumb" src="blkfri-70-off-devices.png" alt="Black friday">
-              </a>
-              <figcaption>
-                <span class="amulet" data-href="blkfri-70-off-devices.html"></span>
-                <h3 class="title">Black friday</h3>
-              </figcaption>
-              <div class="subtitle">Campaign • Black Friday</div>
-            </figure>
-          </div>
-          <div class="rule"></div>
-        </section>
-
-        <footer>
-          <div>© <span id="year"></span> Colleen Sisson</div>
-          <div>Portfolio</div>
-        </footer>
-      </main>
-    </div>
+    <footer>
+      <div>© <span id="year"></span> Colleen Sisson</div>
+      <div>Portfolio</div>
+    </footer>
   </div>
 
   <!-- Minimal modal -->
@@ -325,7 +300,7 @@
   </div>
 
   <script>
-    // ===== Modal preview (unchanged behavior, just portable) =====
+    // open modal via amulet or by clicking an image (preview)
     const modal = document.getElementById('modal');
     const mTitle = document.getElementById('m-title');
     const mCat   = document.getElementById('m-cat');
@@ -334,15 +309,27 @@
     const mClose = document.getElementById('m-close');
 
     function openModal(title, cat, href){
-      mTitle.textContent = title; mCat.textContent = '• ' + cat; mFrame.src = href; mOpen.href = href;
-      modal.classList.add('open'); modal.setAttribute('aria-hidden','false');
+      mTitle.textContent = title;
+      mCat.textContent = "• " + cat;
+      mFrame.src = href;
+      mOpen.href = href;
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden','false');
     }
-    function closeModal(){ modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); mFrame.removeAttribute('src') }
+    function closeModal(){
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden','true');
+      mFrame.removeAttribute('src');
+    }
 
     document.addEventListener('click', (e)=>{
       // amulet click
       const am = e.target.closest('.amulet');
-      if(am){ const fig = am.closest('figure'); const a = fig.querySelector('a'); openModal(a.dataset.title, fig.dataset.cat, a.getAttribute('href')) }
+      if(am){
+        const fig = am.closest('figure');
+        const a   = fig.querySelector('a');
+        openModal(a.dataset.title, fig.dataset.cat, a.getAttribute('href'));
+      }
       // click outside (backdrop)
       if(e.target === modal) closeModal();
       // images: hold CMD/CTRL to open in new tab, plain click to preview
@@ -353,65 +340,11 @@
         openModal(imgLink.dataset.title, fig.dataset.cat, imgLink.getAttribute('href'));
       }
     });
-    document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeModal() });
+    document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeModal(); });
     mClose.addEventListener('click', closeModal);
 
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    // ===== Scroll-spy for rail + chips =====
-    const rail = document.querySelector('.rail');
-    const chipBar = document.querySelector('.chips .track');
-    const railLinks = [...document.querySelectorAll('.rail .list a')];
-    const chipLinks = [...document.querySelectorAll('.chips a')];
-    const allLinks  = [...railLinks, ...chipLinks];
-    const sections  = allLinks
-      .map(a => document.querySelector(a.getAttribute('href')))
-      .filter(Boolean);
-
-    function setActive(hash){
-      allLinks.forEach(l => {
-        const match = l.getAttribute('href') === hash;
-        l.classList.toggle('is-active', match);
-        if(match) l.setAttribute('aria-current','page'); else l.removeAttribute('aria-current');
-      });
-      // ensure active chip stays visible on mobile
-      const activeChip = chipLinks.find(l => l.classList.contains('is-active'));
-      if(activeChip && chipBar){
-        const left = activeChip.offsetLeft - 24;
-        const right = activeChip.offsetLeft + activeChip.offsetWidth + 24;
-        if(left < chipBar.scrollLeft) chipBar.scrollTo({left, behavior:'smooth'});
-        else if(right > chipBar.scrollLeft + chipBar.clientWidth)
-          chipBar.scrollTo({left: right - chipBar.clientWidth, behavior:'smooth'});
-      }
-    }
-
-    // Click handling (sync both navs immediately)
-    document.addEventListener('click', (e)=>{
-      const a = e.target.closest('.rail a, .chips a');
-      if(!a) return;
-      setActive(a.getAttribute('href'));
-    });
-
-    // Scroll-spy (IntersectionObserver)
-    const io = new IntersectionObserver((entries)=>{
-      // choose the entry most in view above the fold
-      const visible = entries
-        .filter(en => en.isIntersecting)
-        .sort((a,b)=> b.intersectionRatio - a.intersectionRatio)[0];
-      if(!visible) return;
-      const id = '#' + visible.target.id;
-      setActive(id);
-    }, { rootMargin: '-35% 0px -55% 0px', threshold: [0.2, 0.6, 1] });
-
-    sections.forEach(sec => io.observe(sec));
-
-    // Init (hash or first)
-    const initHash = location.hash && allLinks.some(l => l.getAttribute('href') === location.hash)
-      ? location.hash : allLinks[0]?.getAttribute('href');
-    if(initHash) setActive(initHash);
-
-    // Keep rail in view when resizing
-    window.addEventListener('resize', ()=>{ const current = document.querySelector('.rail a.is-active'); if(current) current.scrollIntoView({block:'nearest'}) });
   </script>
 </body>
 </html>
+
