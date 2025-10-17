@@ -5,100 +5,120 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Colleen Sisson — Portfolio</title>
   <meta name="description" content="Email, web & brand portfolio by Colleen Sisson."/>
-  <!-- Type: titles = Newsreader, body/UI = Inter -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap" rel="stylesheet">
+
+  <!-- Headings: Lato; Body/UI: Lucida system stack -->
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@600&display=swap" rel="stylesheet"/>
 
   <style>
     :root{
-      --bg:#ffffff; --ink:#151515; --muted:#6f6f6f; --rule:#e8e8e8; --accent:#3fc2c2; --max:1080px;
-      --fs-xxs:12px; --fs-xs:13.5px; --fs-s:15.5px; --fs-m:18px; --fs-l:28px; --fs-xl:44px;
+      --bg:#ffffff;
+      --ink:#151515;
+      --muted:#6f6f6f;
+      --rule:#e8e8e8;
+      --turq:#3fc2c2; /* amulet */
+      --max:1080px;
+
+      --fs-xxs:11.5px;
+      --fs-xs:13px;
+      --fs-s:15px;
+      --fs-m:18px;
+      --fs-l:26px;
+      --fs-xl:34px;
     }
 
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
-      margin:0; background:var(--bg); color:var(--ink);
-      font:16px/1.65 Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial;
+      margin:0;
+      background:var(--bg);
+      color:var(--ink);
+      font:16px/1.6 "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Verdana,Arial,sans-serif;
       -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
     }
     a{color:inherit; text-decoration:none}
     .wrap{max-width:var(--max); margin:0 auto; padding:28px 20px 80px}
 
-    /* Header: sticky translucent, nav on right */
+    /* Header (sticky + translucent), nav on right */
     header{
       position:sticky; top:0; z-index:20;
-      backdrop-filter:saturate(1.2) blur(6px);
-      background:color-mix(in srgb, var(--bg) 86%, transparent);
-      padding:18px 0 14px; border-bottom:1px solid var(--rule);
+      backdrop-filter:saturate(1.1) blur(6px);
+      background:color-mix(in srgb, var(--bg) 88%, transparent);
+      padding:36px 0 22px;
+      border-bottom:1px solid var(--rule);
       display:flex; align-items:flex-end; justify-content:space-between; gap:16px;
     }
     .brand h1{
-      margin:0; font-family:Newsreader, serif; font-weight:600;
-      letter-spacing:-0.3px; font-size:var(--fs-xl); line-height:1.08;
+      margin:0; font-weight:600; letter-spacing:-.2px; font-size:var(--fs-xl); line-height:1.2;
+      font-family:"Lato", "Lucida Grande","Lucida Sans Unicode","Lucida Sans",sans-serif; /* headings = Lato */
     }
     .brand small{
-      display:block; margin-top:6px; font:500 var(--fs-xs)/1.35 Inter, system-ui, sans-serif; color:var(--muted);
+      display:block; margin-top:4px; font-size:var(--fs-xs); color:var(--muted); letter-spacing:.3px;
     }
-    .meta-nav{
-      font:500 var(--fs-xs)/1 Inter, system-ui, sans-serif; color:var(--muted);
-      display:flex; gap:8px; flex-wrap:wrap;
-    }
+    .meta-nav{font-size:var(--fs-xs); color:var(--muted); display:flex; gap:6px; flex-wrap:wrap}
     .meta-nav a{
-      padding:7px 11px; border:1px solid var(--rule); border-radius:999px; background:#fff;
+      padding:4px 6px; border:1px solid var(--rule); border-radius:999px; background:#fff;
     }
-    .meta-nav a:hover{ border-color:var(--accent); box-shadow:0 0 0 3px rgba(63,194,194,.20) }
 
-    /* Sections */
-    section{ padding:28px 0 }
-    .section-head{ display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:14px }
+    /* Section */
+    section{padding:30px 0}
+    .section-head{
+      display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:14px;
+    }
     .section-title{
-      font:600 var(--fs-m)/1.25 Inter, system-ui, sans-serif; color:#333; letter-spacing:0; /* no all caps */
+      font-size:var(--fs-s); color:#333; letter-spacing:.02em;
+      font-family:"Lato","Lucida Grande","Lucida Sans Unicode","Lucida Sans",sans-serif; font-weight:600; /* no caps */
     }
-    .rule{ border-top:1px solid var(--rule); margin-top:12px }
+    .rule{border-top:1px solid var(--rule); margin-top:10px}
 
-    /* Grid & cards */
-    .grid{ display:grid; gap:22px; grid-template-columns:repeat(auto-fill, minmax(300px, 1fr)); align-items:start }
-    figure{ margin:0; display:flex; flex-direction:column; gap:10px }
+    /* Grid (quiet, editorial) */
+    .grid{
+      display:grid; gap:22px;
+      grid-template-columns:repeat(auto-fill, minmax(300px, 1fr));
+      align-items:start;
+    }
+
+    figure{
+      margin:0; display:flex; flex-direction:column; gap:10px;
+    }
     .thumb{
-      width:100%; aspect-ratio:16/10; object-fit:cover;
-      border:1px solid var(--rule); border-radius:12px; background:#f7f7f7;
+      width:100%; aspect-ratio:16/10; object-fit:cover; border:1px solid var(--rule);
+      border-radius:10px; background:#f7f7f7;
       transition:transform .15s ease, filter .15s ease;
     }
     a:hover .thumb{ transform:translateY(-2px); filter:saturate(1.02) }
-    figcaption{ display:flex; align-items:center; gap:8px; flex-wrap:wrap }
+    figcaption{display:flex; align-items:center; gap:8px; flex-wrap:wrap}
     .amulet{
-      width:8px; height:8px; border-radius:50%; background:var(--accent);
+      width:8px; height:8px; border-radius:50%; background:var(--turq);
       box-shadow:0 0 0 3px rgba(63,194,194,.12); flex:0 0 auto;
     }
     .title{
-      margin:0; font-family:Newsreader, serif; font-weight:600;
-      font-size:var(--fs-l); line-height:1.18; letter-spacing:-0.2px;
+      margin:0; font-size:var(--fs-m); line-height:1.35; font-weight:600;
+      font-family:"Lato","Lucida Grande","Lucida Sans Unicode","Lucida Sans",sans-serif; /* headings = Lato */
     }
-    .subtitle{ font:500 var(--fs-xs)/1.35 Inter, system-ui, sans-serif; color:var(--muted) }
+    .subtitle{font-size:var(--fs-xs); color:var(--muted); letter-spacing:.02em}
 
     footer{
       border-top:1px solid var(--rule); margin-top:40px; padding:18px 0;
-      font:500 var(--fs-xs)/1.4 Inter, system-ui, sans-serif; color:var(--muted);
-      display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap;
+      font-size:var(--fs-xs); color:var(--muted); display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap;
     }
 
     /* Modal */
     .modal{position:fixed; inset:0; display:none; place-items:center;
-           background:rgba(10,10,10,.66); backdrop-filter:blur(1.5px); z-index:30}
+           background:rgba(10,10,10,.66); backdrop-filter:blur(1.5px); z-index:20}
     .modal.open{display:grid}
     .panel{
       width:min(1000px,92vw); height:min(86vh,900px);
       background:#fff; border-radius:12px; overflow:hidden; display:flex; flex-direction:column;
       border:1px solid var(--rule);
     }
-    .panel header{ display:flex; align-items:center; gap:10px; padding:10px 12px; border-bottom:1px solid var(--rule) }
-    .panel .h{ font:600 var(--fs-m)/1.2 Inter, system-ui, sans-serif }
-    .panel .c{ font:500 var(--fs-xs)/1.2 Inter, system-ui, sans-serif; color:var(--muted) }
-    .x{ margin-left:auto; font-size:var(--fs-xs); padding:6px 10px; border:1px solid var(--rule); border-radius:8px; background:#fff; cursor:pointer }
-    .frame{ flex:1 1 auto }
-    iframe{ border:0; width:100%; height:100% }
-    .actions{ border-top:1px solid var(--rule); padding:10px 12px; display:flex; justify-content:flex-end }
-    .btn{ font:600 var(--fs-s)/1.1 Inter, system-ui, sans-serif; padding:8px 12px; border:1px solid var(--ink); border-radius:9px; background:#fff; cursor:pointer }
+    .panel header{display:flex; align-items:center; gap:10px; padding:10px 12px; border-bottom:1px solid var(--rule)}
+    .panel .h{font-weight:600; font-size:var(--fs-s); font-family:"Lato","Lucida Grande","Lucida Sans Unicode","Lucida Sans",sans-serif}
+    .panel .c{font-size:var(--fs-xs); color:var(--muted)}
+    .x{margin-left:auto; font-size:var(--fs-xs); padding:6px 10px; border:1px solid var(--rule); border-radius:8px; background:#fff; cursor:pointer}
+    .frame{flex:1 1 auto}
+    iframe{border:0; width:100%; height:100%}
+    .actions{border-top:1px solid var(--rule); padding:10px 12px; display:flex; justify-content:flex-end}
+    .btn{font-size:var(--fs-s); padding:8px 12px; border:1px solid var(--ink); border-radius:9px; background:#fff; cursor:pointer}
   </style>
 </head>
 <body>
@@ -108,7 +128,7 @@
         <h1>Colleen Sisson</h1>
         <small>Email design & direction</small>
       </div>
-      <nav class="meta-nav" aria-label="Navigate">
+      <nav class="meta-nav" aria-label="Meta">
         <a href="#labor-day">Labor Day</a>
         <a href="#fathers-day">Father’s Day</a>
         <a href="#foot-health">Foot Health</a>
@@ -120,17 +140,19 @@
 
     <!-- Labor Day -->
     <section id="labor-day">
-      <div class="section-head"><div class="section-title">Labor Day</div></div>
+      <div class="section-head">
+        <div class="section-title">Labor Day</div>
+      </div>
       <div class="grid">
         <figure data-cat="Labor Day">
           <a href="laborday-e1.html" target="_blank" rel="noopener" data-title="Labor Day → Less labor for your body">
-            <img class="thumb" src="./laborday-e1.png?v=2" alt="Labor Day → Less labor for your body">
+            <img class="thumb" src="./laborday-e1.png" alt="Labor Day → Less labor for your body">
           </a>
           <figcaption>
             <span class="amulet" data-href="laborday-e1.html" aria-label="Preview"></span>
             <h3 class="title">Labor Day → Less labor for your body</h3>
           </figcaption>
-          <div class="subtitle">Campaign · Labor Day</div>
+          <div class="subtitle">Campaign • Labor Day</div>
         </figure>
       </div>
       <div class="rule"></div>
@@ -138,28 +160,30 @@
 
     <!-- Father’s Day -->
     <section id="fathers-day">
-      <div class="section-head"><div class="section-title">Father’s Day</div></div>
+      <div class="section-head">
+        <div class="section-title">Father’s Day</div>
+      </div>
       <div class="grid">
         <figure data-cat="Father’s Day">
           <a href="fathers-day-e2.html" target="_blank" rel="noopener" data-title="Gear that supports the gear">
-            <img class="thumb" src="./fathers-day-e2.png?v=2" alt="Gear that supports the gear">
+            <img class="thumb" src="./fathers-day-e2.png" alt="Gear that supports the gear">
           </a>
           <figcaption>
             <span class="amulet" data-href="fathers-day-e2.html"></span>
             <h3 class="title">Gear that supports the gear</h3>
           </figcaption>
-          <div class="subtitle">Campaign · Father’s Day</div>
+          <div class="subtitle">Campaign • Father’s Day</div>
         </figure>
 
         <figure data-cat="Father’s Day">
-          <a href="all-in-the-kit-fday-e4.html" target="_blank" rel="noopener" data-title="It’s all in the Kit">
-            <img class="thumb" src="./all-in-the-kit-fday-e4.png?v=2" alt="It's all in the Kit">
+          <a href="all-in-the-kit-fday-e4.html" target="_blank" rel="noopener" data-title="It's all in the Kit">
+            <img class="thumb" src="./all-in-the-kit-fday-e4.png" alt="It's all in the Kit">
           </a>
           <figcaption>
             <span class="amulet" data-href="all-in-the-kit-fday-e4.html"></span>
             <h3 class="title">It’s all in the Kit</h3>
           </figcaption>
-          <div class="subtitle">Campaign · Father’s Day</div>
+          <div class="subtitle">Campaign • Father’s Day</div>
         </figure>
       </div>
       <div class="rule"></div>
@@ -167,28 +191,30 @@
 
     <!-- Foot Health Month -->
     <section id="foot-health">
-      <div class="section-head"><div class="section-title">Foot Health Month</div></div>
+      <div class="section-head">
+        <div class="section-title">Foot Health Month</div>
+      </div>
       <div class="grid">
         <figure data-cat="Foot Health Month">
           <a href="foot-health-2.html" target="_blank" rel="noopener" data-title="Full-foot calm">
-            <img class="thumb" src="./foot-health-2.png?v=2" alt="Full-foot calm">
+            <img class="thumb" src="./foot-health-2.png" alt="Full-foot calm">
           </a>
           <figcaption>
             <span class="amulet" data-href="foot-health-2.html"></span>
             <h3 class="title">Full-foot calm</h3>
           </figcaption>
-          <div class="subtitle">Campaign · Foot Health Month</div>
+          <div class="subtitle">Campaign • Foot Health Month</div>
         </figure>
 
         <figure data-cat="Foot Health Month">
           <a href="foot-health-4.html" target="_blank" rel="noopener" data-title="Footnotes">
-            <img class="thumb" src="./foot-health-4.png?v=2" alt="Footnotes">
+            <img class="thumb" src="./foot-health-4.png" alt="Footnotes">
           </a>
           <figcaption>
             <span class="amulet" data-href="foot-health-4.html"></span>
             <h3 class="title">Footnotes</h3>
           </figcaption>
-          <div class="subtitle">Campaign · Foot Health Month</div>
+          <div class="subtitle">Campaign • Foot Health Month</div>
         </figure>
       </div>
       <div class="rule"></div>
@@ -196,39 +222,41 @@
 
     <!-- Seasonal -->
     <section id="seasonal">
-      <div class="section-head"><div class="section-title">Seasonal</div></div>
+      <div class="section-head">
+        <div class="section-title">Seasonal</div>
+      </div>
       <div class="grid">
         <figure data-cat="Seasonal">
           <a href="october-reset.html" target="_blank" rel="noopener" data-title="October reset">
-            <img class="thumb" src="./october-reset.png?v=2" alt="October reset">
+            <img class="thumb" src="./october-reset.png" alt="October reset">
           </a>
           <figcaption>
             <span class="amulet" data-href="october-reset.html"></span>
             <h3 class="title">October reset</h3>
           </figcaption>
-          <div class="subtitle">Campaign · Seasonal</div>
+          <div class="subtitle">Campaign • Seasonal</div>
         </figure>
 
         <figure data-cat="Seasonal">
           <a href="fall-bogo.html" target="_blank" rel="noopener" data-title="Fall BOGO">
-            <img class="thumb" src="./fall-bogo.png?v=2" alt="Fall BOGO">
+            <img class="thumb" src="./fall-bogo.png" alt="Fall BOGO">
           </a>
           <figcaption>
             <span class="amulet" data-href="fall-bogo.html"></span>
             <h3 class="title">Fall BOGO</h3>
           </figcaption>
-          <div class="subtitle">Campaign · Seasonal</div>
+          <div class="subtitle">Campaign • Seasonal</div>
         </figure>
 
         <figure data-cat="Seasonal">
           <a href="extra-glo-extra-off.html" target="_blank" rel="noopener" data-title="Extra off. Extra glo.">
-            <img class="thumb" src="./extra-glo-extra-off.png?v=2" alt="Extra off. Extra glo.">
+            <img class="thumb" src="./extra-glo-extra-off.png" alt="Extra off. Extra glo.">
           </a>
           <figcaption>
             <span class="amulet" data-href="extra-glo-extra-off.html"></span>
             <h3 class="title">Extra off. Extra glo.</h3>
           </figcaption>
-          <div class="subtitle">Campaign · Seasonal</div>
+          <div class="subtitle">Campaign • Seasonal</div>
         </figure>
       </div>
       <div class="rule"></div>
@@ -236,28 +264,30 @@
 
     <!-- Black Friday -->
     <section id="black-friday">
-      <div class="section-head"><div class="section-title">Black Friday</div></div>
+      <div class="section-head">
+        <div class="section-title">Black Friday</div>
+      </div>
       <div class="grid">
         <figure data-cat="Black Friday">
           <a href="blkfri-55-off-wraps.html" target="_blank" rel="noopener" data-title="Wraps">
-            <img class="thumb" src="./blkfri-55-off-wraps.png?v=2" alt="Wraps">
+            <img class="thumb" src="./blkfri-55-off-wraps.png" alt="Wraps">
           </a>
           <figcaption>
             <span class="amulet" data-href="blkfri-55-off-wraps.html"></span>
             <h3 class="title">Wraps</h3>
           </figcaption>
-          <div class="subtitle">Campaign · Black Friday</div>
+          <div class="subtitle">Campaign • Black Friday</div>
         </figure>
 
         <figure data-cat="Black Friday">
           <a href="blkfri-70-off-devices.html" target="_blank" rel="noopener" data-title="Black friday">
-            <img class="thumb" src="./blkfri-70-off-devices.png?v=2" alt="Black friday">
+            <img class="thumb" src="./blkfri-70-off-devices.png" alt="Black friday">
           </a>
           <figcaption>
             <span class="amulet" data-href="blkfri-70-off-devices.html"></span>
             <h3 class="title">Black friday</h3>
           </figcaption>
-          <div class="subtitle">Campaign · Black Friday</div>
+          <div class="subtitle">Campaign • Black Friday</div>
         </figure>
       </div>
       <div class="rule"></div>
@@ -265,28 +295,30 @@
 
     <!-- Web & Brand -->
     <section id="web-brand">
-      <div class="section-head"><div class="section-title">Web & Brand</div></div>
+      <div class="section-head">
+        <div class="section-title">Web & Brand</div>
+      </div>
       <div class="grid">
         <figure data-cat="Web & Brand">
           <a href="https://thehealingpath.co" target="_blank" rel="noopener" data-title="The Healing Path — mobile">
-            <img class="thumb" src="./thp-mobile-web.png?v=2" alt="The Healing Path — mobile">
+            <img class="thumb" src="./thp-mobile-web.png" alt="The Healing Path — mobile">
           </a>
           <figcaption>
             <span class="amulet" data-href="https://thehealingpath.co"></span>
             <h3 class="title">The Healing Path — mobile</h3>
           </figcaption>
-          <div class="subtitle">Web · Brand · UX</div>
+          <div class="subtitle">Web • Brand • UX</div>
         </figure>
 
         <figure data-cat="Web & Brand">
           <a href="https://thehealingpath.co" target="_blank" rel="noopener" data-title="The Healing Path — desktop">
-            <img class="thumb" src="./thp-dsktp-web.png?v=2" alt="The Healing Path — desktop">
+            <img class="thumb" src="./thp-dsktp-web.png" alt="The Healing Path — desktop">
           </a>
           <figcaption>
             <span class="amulet" data-href="https://thehealingpath.co"></span>
             <h3 class="title">The Healing Path — desktop</h3>
           </figcaption>
-          <div class="subtitle">Web · Brand · UX</div>
+          <div class="subtitle">Web • Brand • UX</div>
         </figure>
       </div>
       <div class="rule"></div>
@@ -298,23 +330,23 @@
     </footer>
   </div>
 
-  <!-- Modal -->
+  <!-- Minimal modal -->
   <div class="modal" id="modal" aria-hidden="true">
     <div class="panel" role="dialog" aria-modal="true">
       <header>
         <div class="h" id="m-title">Title</div>
-        <div class="c" id="m-cat">· Category</div>
+        <div class="c" id="m-cat">• Category</div>
         <button class="x" id="m-close" aria-label="Close">Close</button>
       </header>
-      <div class="frame"><iframe id="m-frame" title="Preview"></iframe></div>
+      <div class="frame"><iframe id="m-frame" title="Email preview"></iframe></div>
       <div class="actions">
-        <a id="m-open" class="btn" target="_blank" rel="noopener">Open full</a>
+        <a id="m-open" class="btn" target="_blank" rel="noopener">Open full email</a>
       </div>
     </div>
   </div>
 
   <script>
-    // Modal
+    // modal behavior
     const modal = document.getElementById('modal');
     const mTitle = document.getElementById('m-title');
     const mCat   = document.getElementById('m-cat');
@@ -324,7 +356,7 @@
 
     function openModal(title, cat, href){
       mTitle.textContent = title;
-      mCat.textContent = '· ' + cat;
+      mCat.textContent = "• " + cat;
       mFrame.src = href;
       mOpen.href = href;
       modal.classList.add('open');
@@ -359,4 +391,3 @@
   </script>
 </body>
 </html>
-
