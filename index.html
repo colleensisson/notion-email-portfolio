@@ -4,17 +4,15 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Colleen Sisson — Portfolio</title>
-  <meta name="description" content="Email, web & brand portfolio by Colleen Sisson."/>
+  <meta name="description" content="Email portfolio by Colleen Sisson."/>
 
-  <!-- Headings: Lato; Body/UI: Lucida system stack -->
+  <!-- Headings: Lato; Body/UI: Lucida stack -->
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@600&display=swap" rel="stylesheet"/>
 
   <style>
     :root{
-      --bg:#ffffff; --ink:#151515; --muted:#6f6f6f; --rule:#e8e8e8; --turq:#3fc2c2;
-      --max:1080px;
-      --fs-xxs:11.5px; --fs-xs:13px; --fs-s:15px; --fs-m:18px; --fs-l:22px; --fs-xl:34px;
-      --pill-pad:6px 10px;
+      --bg:#ffffff; --ink:#151515; --muted:#6f6f6f; --rule:#e8e8e8; --turq:#3fc2c2; --max:1080px;
+      --fs-xxs:11.5px; --fs-xs:13px; --fs-s:15px; --fs-m:18px; --fs-l:20px; --fs-xl:34px;
     }
     *{box-sizing:border-box}
     html,body{height:100%}
@@ -24,6 +22,8 @@
       -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
     }
     a{color:inherit; text-decoration:none}
+    [hidden]{display:none!important}
+
     .wrap{max-width:var(--max); margin:0 auto; padding:28px 20px 80px}
 
     /* Header (sticky + translucent) */
@@ -31,95 +31,69 @@
       position:sticky; top:0; z-index:30;
       backdrop-filter:saturate(1.1) blur(6px);
       background:color-mix(in srgb, var(--bg) 88%, transparent);
+      padding:36px 0 22px;
       border-bottom:1px solid var(--rule);
-    }
-    .head-row{
-      padding:24px 0 14px;
       display:flex; align-items:flex-end; justify-content:space-between; gap:16px;
     }
     .brand h1{
       margin:0; font-weight:600; letter-spacing:-.2px; font-size:var(--fs-xl); line-height:1.2;
       font-family:"Lato","Lucida Grande","Lucida Sans Unicode","Lucida Sans",sans-serif;
     }
-    .brand small{ display:block; margin-top:4px; font-size:var(--fs-xs); color:var(--muted); letter-spacing:.3px }
-
-    /* Primary nav: two parents only */
-    .meta-nav{ display:flex; gap:8px; flex-wrap:wrap; font-size:var(--fs-xs); color:var(--muted) }
-    .pill{
-      padding:var(--pill-pad); border:1px solid var(--rule); border-radius:999px; background:#fff; cursor:pointer;
-      user-select:none;
+    .brand small{display:block; margin-top:4px; font-size:var(--fs-xs); color:var(--muted); letter-spacing:.3px}
+    .meta-nav{font-size:var(--fs-xs); color:var(--muted); display:flex; gap:8px; flex-wrap:wrap}
+    .meta-nav a, .meta-nav button{
+      padding:6px 10px; border:1px solid var(--rule); border-radius:999px; background:#fff; cursor:pointer;
+      font:inherit; color:inherit;
     }
-    .pill[aria-current="page"]{ border-color:#cfd7d7; box-shadow:0 0 0 2px rgba(0,0,0,.03) }
-
-    /* Email sub-nav (only visible when Email design is active) */
-    .subnav{
-      display:flex; gap:8px; flex-wrap:wrap; padding:0 0 12px; border-top:1px solid var(--rule); border-bottom:1px solid var(--rule);
-    }
-    .chip{
-      padding:5px 9px; border:1px solid var(--rule); border-radius:999px; background:#fff; font-size:var(--fs-xxs); color:#444;
-    }
+    .meta-nav .current{border-color:#cfd7d7; box-shadow:0 0 0 2px rgba(0,0,0,.03)}
 
     /* Sections */
-    section{ padding:26px 0 }
-    .section-head{ display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:12px }
-    .section-title{
-      font-size:var(--fs-s); color:#333; letter-spacing:.02em;
-      font-family:"Lato","Lucida Grande","Lucida Sans Unicode","Lucida Sans",sans-serif; font-weight:600;
-    }
-    .rule{ border-top:1px solid var(--rule); margin-top:10px }
+    section{padding:30px 0}
+    .section-head{display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:14px}
+    .section-title{font-size:var(--fs-s); color:#333; letter-spacing:.02em; font-family:"Lato","Lucida Grande","Lucida Sans Unicode","Lucida Sans",sans-serif; font-weight:600}
+    .rule{border-top:1px solid var(--rule); margin-top:10px}
 
-    /* Grid + cards */
-    .grid{ display:grid; gap:22px; grid-template-columns:repeat(auto-fill, minmax(300px, 1fr)); align-items:start }
-    figure{ margin:0; display:flex; flex-direction:column; gap:10px }
-    .thumb{
-      width:100%; aspect-ratio:16/10; object-fit:cover;
-      border:1px solid var(--rule); border-radius:10px; background:#f7f7f7;
-      transition:transform .15s ease, filter .15s ease;
-    }
-    a:hover .thumb{ transform:translateY(-2px); filter:saturate(1.02) }
-    figcaption{ display:flex; align-items:center; gap:8px; flex-wrap:wrap }
-    .amulet{ width:8px; height:8px; border-radius:50%; background:var(--turq); box-shadow:0 0 0 3px rgba(63,194,194,.12) }
-    .title{
-      margin:0; font-size:var(--fs-l); line-height:1.3; font-weight:600;
-      font-family:"Lato","Lucida Grande","Lucida Sans Unicode","Lucida Sans",sans-serif;
-    }
-    .subtitle{ font-size:var(--fs-xs); color:var(--muted); letter-spacing:.02em }
+    /* Grid/cards */
+    .grid{display:grid; gap:22px; grid-template-columns:repeat(auto-fill, minmax(300px, 1fr)); align-items:start}
+    figure{margin:0; display:flex; flex-direction:column; gap:10px}
+    .thumb{width:100%; aspect-ratio:16/10; object-fit:cover; border:1px solid var(--rule); border-radius:10px; background:#f7f7f7; transition:transform .15s ease, filter .15s ease}
+    a:hover .thumb{transform:translateY(-2px); filter:saturate(1.02)}
+    figcaption{display:flex; align-items:center; gap:8px; flex-wrap:wrap}
+    .amulet{width:8px; height:8px; border-radius:50%; background:var(--turq); box-shadow:0 0 0 3px rgba(63,194,194,.12)}
+    .title{margin:0; font-size:var(--fs-l); line-height:1.3; font-weight:600; font-family:"Lato","Lucida Grande","Lucida Sans Unicode","Lucida Sans",sans-serif}
+    .subtitle{font-size:var(--fs-xs); color:var(--muted); letter-spacing:.02em}
 
-    footer{
-      border-top:1px solid var(--rule); margin-top:40px; padding:18px 0;
-      font-size:var(--fs-xs); color:var(--muted); display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap;
-    }
+    footer{border-top:1px solid var(--rule); margin-top:40px; padding:18px 0; font-size:var(--fs-xs); color:var(--muted); display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap}
 
-    /* Visibility toggles */
-    [hidden]{ display:none !important }
+    /* Modal */
+    .modal{position:fixed; inset:0; display:none; place-items:center; background:rgba(10,10,10,.66); backdrop-filter:blur(1.5px); z-index:50}
+    .modal.open{display:grid}
+    .panel{width:min(1000px,92vw); height:min(86vh,900px); background:#fff; border-radius:12px; overflow:hidden; display:flex; flex-direction:column; border:1px solid var(--rule)}
+    .panel header{display:flex; align-items:center; gap:10px; padding:10px 12px; border-bottom:1px solid var(--rule)}
+    .panel .h{font-weight:600; font-size:var(--fs-s); font-family:"Lato","Lucida Grande","Lucida Sans Unicode","Lucida Sans",sans-serif}
+    .panel .c{font-size:var(--fs-xs); color:var(--muted)}
+    .x{margin-left:auto; font-size:var(--fs-xs); padding:6px 10px; border:1px solid var(--rule); border-radius:8px; background:#fff; cursor:pointer}
+    .frame{flex:1 1 auto}
+    iframe{border:0; width:100%; height:100%}
+    .actions{border-top:1px solid var(--rule); padding:10px 12px; display:flex; justify-content:flex-end}
+    .btn{font-size:var(--fs-s); padding:8px 12px; border:1px solid var(--ink); border-radius:9px; background:#fff; cursor:pointer}
   </style>
 </head>
 <body>
   <div class="wrap">
     <header>
-      <div class="head-row">
-        <div class="brand">
-          <h1>Colleen Sisson</h1>
-          <small>Email design & direction</small>
-        </div>
-        <!-- Primary nav -->
-        <nav class="meta-nav" aria-label="Primary">
-          <button class="pill" id="nav-email" aria-current="page">Email design</button>
-          <button class="pill" id="nav-web">Web & brand design</button>
-        </nav>
+      <div class="brand">
+        <h1>Colleen Sisson</h1>
+        <small>Email design & direction</small>
       </div>
-
-      <!-- Email sub-nav (only shows when Email design is active) -->
-      <nav class="subnav" id="email-subnav" aria-label="Email categories">
-        <a class="chip" href="#labor-day">Labor Day</a>
-        <a class="chip" href="#fathers-day">Father’s Day</a>
-        <a class="chip" href="#foot-health">Foot Health Month</a>
-        <a class="chip" href="#seasonal">Seasonal</a>
-        <a class="chip" href="#black-friday">Black Friday</a>
+      <!-- two parent items only -->
+      <nav class="meta-nav" aria-label="Sections">
+        <button id="nav-email" class="current" type="button">Email design</button>
+        <button id="nav-web" type="button">Web & brand design</button>
       </nav>
     </header>
 
-    <!-- EMAIL SECTIONS (wrapped for easy toggle) -->
+    <!-- EMAIL COLLECTION -->
     <main id="email-sections">
       <!-- Labor Day -->
       <section id="labor-day">
@@ -267,7 +241,7 @@
       </section>
     </main>
 
-    <!-- WEB & BRAND SECTION (toggled) -->
+    <!-- WEB & BRAND -->
     <section id="webbrand-section" hidden>
       <div class="section-head"><div class="section-title">Web & brand design</div></div>
       <div class="grid">
@@ -281,7 +255,6 @@
           </figcaption>
           <div class="subtitle">Web • Brand • UX</div>
         </figure>
-
         <figure data-cat="Web & Brand">
           <a href="https://thehealingpath.co" target="_blank" rel="noopener" data-title="The Healing Path — desktop">
             <img class="thumb" src="./thp-dsktp-web.png" alt="The Healing Path — desktop">
@@ -302,11 +275,11 @@
     </footer>
   </div>
 
-  <!-- Modal -->
-  <div class="modal" id="modal" aria-hidden="true">
+  <!-- Modal (hidden by default via [hidden]) -->
+  <div class="modal" id="modal" aria-hidden="true" hidden>
     <div class="panel" role="dialog" aria-modal="true">
       <header>
-        <div class="h" id="m-title" style="font-family:Lato, 'Lucida Grande','Lucida Sans Unicode','Lucida Sans',sans-serif; font-weight:600">Title</div>
+        <div class="h" id="m-title">Title</div>
         <div class="c" id="m-cat">• Category</div>
         <button class="x" id="m-close" aria-label="Close">Close</button>
       </header>
@@ -327,43 +300,59 @@
     const mClose = document.getElementById('m-close');
 
     function openModal(title, cat, href){
-      mTitle.textContent = title; mCat.textContent = "• " + cat; mFrame.src = href; mOpen.href = href;
-      modal.classList.add('open'); modal.setAttribute('aria-hidden','false');
+      mTitle.textContent = title;
+      mCat.textContent = "• " + cat;
+      mFrame.src = href;
+      mOpen.href = href;
+      modal.hidden = false;
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden','false');
     }
-    function closeModal(){ modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); mFrame.removeAttribute('src'); }
+    function closeModal(){
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden','true');
+      modal.hidden = true;
+      mFrame.removeAttribute('src');
+    }
+
     document.addEventListener('click', (e)=>{
       const am = e.target.closest('.amulet');
-      if(am){ const fig = am.closest('figure'); const a = fig.querySelector('a'); openModal(a.dataset.title, fig.dataset.cat, a.href); }
+      if(am){
+        const fig = am.closest('figure');
+        const a   = fig.querySelector('a');
+        openModal(a.dataset.title, fig.dataset.cat, a.getAttribute('href'));
+      }
       if(e.target === modal) closeModal();
+
       const imgLink = e.target.closest('a');
       if(imgLink && imgLink.querySelector('.thumb') && !(e.metaKey||e.ctrlKey)){
-        e.preventDefault(); const fig = imgLink.closest('figure');
-        openModal(imgLink.dataset.title, fig.dataset.cat, imgLink.href);
+        e.preventDefault();
+        const fig = imgLink.closest('figure');
+        openModal(imgLink.dataset.title, fig.dataset.cat, imgLink.getAttribute('href'));
       }
     });
     document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeModal(); });
     mClose.addEventListener('click', closeModal);
 
-    // Primary nav toggle
+    // Primary two-tab toggle
     const navEmail = document.getElementById('nav-email');
     const navWeb   = document.getElementById('nav-web');
     const emailWrap = document.getElementById('email-sections');
     const webWrap   = document.getElementById('webbrand-section');
-    const subnav    = document.getElementById('email-subnav');
 
     function setMode(mode){
       const isEmail = mode === 'email';
       emailWrap.hidden = !isEmail;
-      subnav.hidden = !isEmail;
-      webWrap.hidden = isEmail;
-      navEmail.setAttribute('aria-current', isEmail ? 'page' : 'false');
-      navWeb.setAttribute('aria-current', !isEmail ? 'page' : 'false');
-      if(!isEmail) window.scrollTo({ top:0, behavior:'smooth' });
+      webWrap.hidden   =  isEmail;
+      navEmail.classList.toggle('current', isEmail);
+      navWeb.classList.toggle('current', !isEmail);
+      window.scrollTo({top:0, behavior:'instant'});
     }
-    navEmail.addEventListener('click', ()=>setMode('email'));
-    navWeb.addEventListener('click', ()=>setMode('web'));
 
-    // Init
+    navEmail.addEventListener('click', ()=>setMode('email'));
+    navWeb  .addEventListener('click', ()=>setMode('web'));
+
+    // init
     setMode('email');
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
