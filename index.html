@@ -6,7 +6,7 @@
   <title>Colleen Sisson — Portfolio</title>
   <meta name="description" content="Email portfolio by Colleen Sisson."/>
 
-  <!-- Headings: Lato; Body/UI: Lucida-like stack -->
+  <!-- Headings: Lato; Body/UI: Lucida stack -->
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@600&display=swap" rel="stylesheet"/>
 
   <style>
@@ -23,19 +23,19 @@
     }
     a{color:inherit; text-decoration:none}
     [hidden]{display:none!important}
+    img{display:block; max-width:100%}
 
     .wrap{max-width:var(--max); margin:0 auto; padding:28px 20px 80px}
 
-    /* Header (sticky + translucent with fallbacks) */
+    /* Header (sticky with safe fallback only) */
     header{
       position:sticky; top:0; z-index:30;
-      background:rgba(255,255,255,.9); /* fallback */
-      -webkit-backdrop-filter:blur(6px) saturate(1.1);
-      backdrop-filter:blur(6px) saturate(1.1);
-      background:color-mix(in srgb, var(--bg) 88%, transparent);
+      background:rgba(255,255,255,.92);
       padding:36px 0 22px;
       border-bottom:1px solid var(--rule);
       display:flex; align-items:flex-end; justify-content:space-between; gap:16px;
+      backdrop-filter:blur(6px);
+      -webkit-backdrop-filter:blur(6px);
     }
     .brand h1{
       margin:0; font-weight:600; letter-spacing:-.2px; font-size:var(--fs-xl); line-height:1.2;
@@ -58,14 +58,20 @@
     /* Grid/cards */
     .grid{display:grid; gap:22px; grid-template-columns:repeat(auto-fill, minmax(300px, 1fr)); align-items:start}
     figure{margin:0; display:flex; flex-direction:column; gap:10px}
-
-    .thumb{width:100%; aspect-ratio:16/10; object-fit:cover; border:1px solid var(--rule); border-radius:10px; background:#f7f7f7; transition:transform .15s ease, filter .15s ease}
+    .thumb{
+      width:100%; aspect-ratio:16/10; object-fit:cover;
+      border:1px solid var(--rule); border-radius:10px; background:#f7f7f7;
+      transition:transform .15s ease, filter .15s ease
+    }
     a:hover .thumb{transform:translateY(-2px); filter:saturate(1.02)}
 
-    /* Caption line: keep dot + title on one line with ellipsis */
+    /* Caption: force amulet + title on one line with ellipsis */
     figcaption{display:flex; align-items:center}
     .capline{display:flex; align-items:center; gap:8px; min-width:0; flex:1 1 auto}
-    .amulet{flex:0 0 8px; width:8px; height:8px; border-radius:50%; background:var(--turq); box-shadow:0 0 0 3px rgba(63,194,194,.12); cursor:pointer}
+    .amulet{
+      flex:0 0 8px; width:8px; height:8px; border-radius:50%;
+      background:var(--turq); box-shadow:0 0 0 3px rgba(63,194,194,.12); cursor:pointer
+    }
     .title{
       margin:0; font-size:var(--fs-l); line-height:1.3; font-weight:600;
       font-family:"Lato","Lucida Grande","Lucida Sans Unicode","Lucida Sans",sans-serif;
@@ -76,7 +82,7 @@
     footer{border-top:1px solid var(--rule); margin-top:40px; padding:18px 0; font-size:var(--fs-xs); color:var(--muted); display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap}
 
     /* Modal */
-    .modal{position:fixed; inset:0; display:none; place-items:center; background:rgba(10,10,10,.66); backdrop-filter:blur(1.5px); z-index:50}
+    .modal{position:fixed; inset:0; display:none; place-items:center; background:rgba(10,10,10,.66); z-index:50}
     .modal.open{display:grid}
     .panel{width:min(1000px,92vw); height:min(86vh,900px); background:#fff; border-radius:12px; overflow:hidden; display:flex; flex-direction:column; border:1px solid var(--rule)}
     .panel header{display:flex; align-items:center; gap:10px; padding:10px 12px; border-bottom:1px solid var(--rule)}
@@ -88,12 +94,11 @@
     .actions{border-top:1px solid var(--rule); padding:10px 12px; display:flex; justify-content:flex-end; gap:8px}
     .btn{font-size:var(--fs-s); padding:8px 12px; border:1px solid var(--ink); border-radius:9px; background:#fff; cursor:pointer; text-decoration:none}
 
-    /* ===== Web & Brand: Single project with two views ===== */
-    /* Make this section read as one project (larger card) */
-    #webbrand-section .grid{grid-template-columns:1fr;} /* single wide card */
+    /* ---------- Web & Brand: single project with two large views ---------- */
+    #webbrand-section .grid{grid-template-columns:1fr;} /* one big card */
     .project-duo .thumb-row{
       display:grid; gap:16px;
-      grid-template-columns:1.1fr .9fr; /* desktop a bit wider than mobile */
+      grid-template-columns:1.1fr .9fr;  /* desktop slightly wider than mobile */
     }
     .project-duo .thumb{aspect-ratio:16/10;}
     @media (max-width:760px){
@@ -116,7 +121,7 @@
       </nav>
     </header>
 
-    <!-- ========== EMAIL COLLECTION ========== -->
+    <!-- ================= EMAIL COLLECTION ================= -->
     <main id="email-sections">
       <!-- Labor Day -->
       <section id="labor-day">
@@ -129,7 +134,6 @@
             <figcaption>
               <div class="capline">
                 <span class="amulet" data-href="laborday-e1.html" aria-label="Preview"></span>
-                <!-- Title stays on same line as the dot; will ellipsize if needed -->
                 <h3 class="title">Labor Day → Less labor for your body</h3>
               </div>
             </figcaption>
@@ -285,13 +289,12 @@
       </section>
     </main>
 
-    <!-- ========== WEB & BRAND (single project with two views) ========== -->
+    <!-- ================ WEB & BRAND (single project) ================ -->
     <section id="webbrand-section" hidden>
       <div class="section-head"><div class="section-title">Web & brand design</div></div>
 
       <div class="grid">
         <figure class="project-duo" data-cat="Web • Brand • UX">
-          <!-- Two views, one project -->
           <div class="thumb-row">
             <a href="https://thehealingpath.co" target="_blank" rel="noopener" data-title="The Healing Path — mobile view">
               <img class="thumb" src="./thp-mobile-web.png" alt="The Healing Path — mobile view">
@@ -326,7 +329,7 @@
     </footer>
   </div>
 
-  <!-- Modal (for email previews; external sites may block iframe embedding) -->
+  <!-- Modal (for local email previews) -->
   <div class="modal" id="modal" aria-hidden="true" hidden>
     <div class="panel" role="dialog" aria-modal="true">
       <header>
@@ -342,85 +345,106 @@
   </div>
 
   <script>
-    // Modal (used for email HTML previews; if an external site blocks iframes, users can use Open full)
-    const modal = document.getElementById('modal');
-    const mTitle = document.getElementById('m-title');
-    const mCat   = document.getElementById('m-cat');
-    const mFrame = document.getElementById('m-frame');
-    const mOpen  = document.getElementById('m-open');
-    const mClose = document.getElementById('m-close');
+    // Tiny error guard so one exception never kills the page
+    (function(){
+      function safe(fn){ try{ fn(); } catch(e){ console && console.error && console.error(e); } }
 
-    function openModal(title, cat, href){
-      mTitle.textContent = title || '';
-      mCat.textContent = (cat ? '• ' + cat : '');
-      mFrame.src = href;
-      mOpen.href = href;
-      modal.hidden = false;
-      modal.classList.add('open');
-      modal.setAttribute('aria-hidden','false');
-    }
-    function closeModal(){
-      modal.classList.remove('open');
-      modal.setAttribute('aria-hidden','true');
-      modal.hidden = true;
-      mFrame.removeAttribute('src');
-    }
+      // Modal elements
+      var modal = document.getElementById('modal');
+      var mTitle = document.getElementById('m-title');
+      var mCat   = document.getElementById('m-cat');
+      var mFrame = document.getElementById('m-frame');
+      var mOpen  = document.getElementById('m-open');
+      var mClose = document.getElementById('m-close');
 
-    document.addEventListener('click', (e)=>{
-      // amulet click -> open modal or external link
-      const am = e.target.closest('.amulet');
-      if(am){
-        const fig = am.closest('figure');
-        const a   = fig.querySelector('a'); // first anchor in the figure
-        // If the amulet belongs to the web project, just open the website
-        const href = am.dataset.href || (a ? a.getAttribute('href') : '');
-        if(href.startsWith('http')) {
+      function openModal(title, cat, href){
+        mTitle.textContent = title || '';
+        mCat.textContent = cat ? ('• ' + cat) : '';
+        mOpen.href = href || '#';
+
+        // On file:// origins, some Chrome setups can be weird about iframes to other local files.
+        // If we're on file://, just open a new tab instead of using the iframe.
+        if (location.protocol === 'file:'){
           window.open(href, '_blank', 'noopener');
-        } else {
-          openModal(a?.dataset?.title || '', fig?.dataset?.cat || '', href);
+          return;
         }
+
+        mFrame.src = href || '';
+        modal.hidden = false;
+        modal.classList.add('open');
+        modal.setAttribute('aria-hidden','false');
+      }
+      function closeModal(){
+        modal.classList.remove('open');
+        modal.setAttribute('aria-hidden','true');
+        modal.hidden = true;
+        mFrame.removeAttribute('src');
       }
 
-      if(e.target === modal) closeModal();
+      safe(function(){
+        document.addEventListener('click', function(e){
+          // Close when clicking backdrop
+          if(e.target === modal){ closeModal(); return; }
 
-      // clicking an email thumbnail opens the modal preview (unless user cmd/ctrl-clicks)
-      const imgLink = e.target.closest('a');
-      if(imgLink && imgLink.querySelector('.thumb') && !(e.metaKey||e.ctrlKey)){
-        const fig = imgLink.closest('figure');
-        // For external websites, don't open modal—open site
-        const href = imgLink.getAttribute('href');
-        if(href.startsWith('http')) return; // allow default
-        e.preventDefault();
-        openModal(imgLink.dataset.title || '', fig.dataset.cat || '', href);
+          // Amulet click (open preview or external site)
+          var am = e.target.closest ? e.target.closest('.amulet') : null;
+          if(am){
+            var fig = am.closest('figure');
+            var a   = fig ? fig.querySelector('a') : null;
+            var href = am.getAttribute('data-href') || (a ? a.getAttribute('href') : '');
+            var title = (a && a.getAttribute('data-title')) || '';
+            var cat = (fig && fig.getAttribute('data-cat')) || '';
+            if(href && /^https?:\/\//.test(href)){
+              window.open(href, '_blank', 'noopener');
+            }else if(href){
+              openModal(title, cat, href);
+            }
+            return;
+          }
+
+          // Thumbnail link click => modal (for local email html); but let cmd/ctrl click pass through
+          var link = e.target.closest ? e.target.closest('a') : null;
+          if(link && link.querySelector && link.querySelector('.thumb') && !(e.metaKey||e.ctrlKey)){
+            var fig2 = link.closest('figure');
+            var isExternal = /^https?:\/\//.test(link.getAttribute('href')||'');
+            if(!isExternal){
+              e.preventDefault();
+              var t = link.getAttribute('data-title') || '';
+              var c = (fig2 && fig2.getAttribute('data-cat')) || '';
+              openModal(t,c,link.getAttribute('href'));
+            }
+          }
+        });
+
+        document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeModal(); });
+        mClose.addEventListener('click', closeModal);
+      });
+
+      // Two-tab toggle
+      var navEmail  = document.getElementById('nav-email');
+      var navWeb    = document.getElementById('nav-web');
+      var emailWrap = document.getElementById('email-sections');
+      var webWrap   = document.getElementById('webbrand-section');
+
+      function setMode(mode){
+        var isEmail = (mode === 'email');
+        emailWrap.hidden = !isEmail;
+        webWrap.hidden   =  isEmail;
+        navEmail.classList.toggle('current', isEmail);
+        navWeb.classList.toggle('current', !isEmail);
+        // Simple, compatible scroll
+        window.scrollTo(0,0);
       }
-    });
-    document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeModal(); });
-    mClose.addEventListener('click', closeModal);
 
-    // Primary two-tab toggle
-    const navEmail  = document.getElementById('nav-email');
-    const navWeb    = document.getElementById('nav-web');
-    const emailWrap = document.getElementById('email-sections');
-    const webWrap   = document.getElementById('webbrand-section');
+      safe(function(){
+        navEmail.addEventListener('click', function(){ setMode('email'); });
+        navWeb  .addEventListener('click', function(){ setMode('web');   });
+      });
 
-    function setMode(mode){
-      const isEmail = mode === 'email';
-      emailWrap.hidden = !isEmail;
-      webWrap.hidden   =  isEmail;
-      navEmail.classList.toggle('current', isEmail);
-      navWeb.classList.toggle('current', !isEmail);
-
-      // Safe scrollTo
-      try { window.scrollTo({ top: 0, behavior: 'auto' }); }
-      catch (_) { window.scrollTo(0, 0); }
-    }
-
-    navEmail.addEventListener('click', ()=>setMode('email'));
-    navWeb  .addEventListener('click', ()=>setMode('web'));
-
-    // init
-    setMode('email');
-    document.getElementById('year').textContent = new Date().getFullYear();
+      // init
+      setMode('email');
+      document.getElementById('year').textContent = new Date().getFullYear();
+    })();
   </script>
 </body>
 </html>
