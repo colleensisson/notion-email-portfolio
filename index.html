@@ -27,15 +27,14 @@
 
     .wrap{max-width:var(--max); margin:0 auto; padding:28px 20px 80px}
 
-    /* Header (sticky with safe fallback only) */
+    /* Header */
     header{
       position:sticky; top:0; z-index:30;
       background:rgba(255,255,255,.92);
       padding:36px 0 22px;
       border-bottom:1px solid var(--rule);
       display:flex; align-items:flex-end; justify-content:space-between; gap:16px;
-      backdrop-filter:blur(6px);
-      -webkit-backdrop-filter:blur(6px);
+      backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px);
     }
     .brand h1{
       margin:0; font-weight:600; letter-spacing:-.2px; font-size:var(--fs-xl); line-height:1.2;
@@ -65,7 +64,7 @@
     }
     a:hover .thumb{transform:translateY(-2px); filter:saturate(1.02)}
 
-    /* Caption: force amulet + title on one line with ellipsis */
+    /* Caption: amulet + title on ONE line w/ ellipsis */
     figcaption{display:flex; align-items:center}
     .capline{display:flex; align-items:center; gap:8px; min-width:0; flex:1 1 auto}
     .amulet{
@@ -81,7 +80,7 @@
 
     footer{border-top:1px solid var(--rule); margin-top:40px; padding:18px 0; font-size:var(--fs-xs); color:var(--muted); display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap}
 
-    /* Modal */
+    /* Modal (supports iframe OR large image) */
     .modal{position:fixed; inset:0; display:none; place-items:center; background:rgba(10,10,10,.66); z-index:50}
     .modal.open{display:grid}
     .panel{width:min(1000px,92vw); height:min(86vh,900px); background:#fff; border-radius:12px; overflow:hidden; display:flex; flex-direction:column; border:1px solid var(--rule)}
@@ -89,12 +88,14 @@
     .panel .h{font-weight:600; font-size:var(--fs-s); font-family:"Lato","Lucida Grande","Lucida Sans Unicode","Lucida Sans",sans-serif}
     .panel .c{font-size:var(--fs-xs); color:var(--muted)}
     .x{margin-left:auto; font-size:var(--fs-xs); padding:6px 10px; border:1px solid var(--rule); border-radius:8px; background:#fff; cursor:pointer}
-    .frame{flex:1 1 auto}
-    iframe{border:0; width:100%; height:100%}
+    .frame{flex:1 1 auto; position:relative; background:#000}
+    iframe{border:0; width:100%; height:100%; background:#fff}
+    .imgview{position:absolute; inset:0; display:none; background:#000; padding:0}
+    .imgview img{width:100%; height:100%; object-fit:contain}
     .actions{border-top:1px solid var(--rule); padding:10px 12px; display:flex; justify-content:flex-end; gap:8px}
     .btn{font-size:var(--fs-s); padding:8px 12px; border:1px solid var(--ink); border-radius:9px; background:#fff; cursor:pointer; text-decoration:none}
 
-    /* ---------- Web & Brand: single project with two large views ---------- */
+    /* Web & Brand: single project with two large views */
     #webbrand-section .grid{grid-template-columns:1fr;} /* one big card */
     .project-duo .thumb-row{
       display:grid; gap:16px;
@@ -104,8 +105,7 @@
     @media (max-width:760px){
       .project-duo .thumb-row{grid-template-columns:1fr; gap:12px;}
     }
-    .actions-left{margin-top:2px; display:flex; gap:8px; flex-wrap:wrap}
-    .btn.link{border-color:var(--rule)}
+    .muted-note{font-size:var(--fs-xxs); color:var(--muted)}
   </style>
 </head>
 <body>
@@ -128,7 +128,7 @@
         <div class="section-head"><div class="section-title">Labor Day</div></div>
         <div class="grid">
           <figure data-cat="Labor Day">
-            <a href="laborday-e1.html" target="_blank" rel="noopener" data-title="Less labor for your body">
+            <a href="laborday-e1.html" data-title="Less labor for your body">
               <img class="thumb" src="./laborday-e1.png" alt="Labor Day — Less labor for your body">
             </a>
             <figcaption>
@@ -148,7 +148,7 @@
         <div class="section-head"><div class="section-title">Father’s Day</div></div>
         <div class="grid">
           <figure data-cat="Father’s Day">
-            <a href="fathers-day-e2.html" target="_blank" rel="noopener" data-title="Gear that supports the gear">
+            <a href="fathers-day-e2.html" data-title="Gear that supports the gear">
               <img class="thumb" src="./fathers-day-e2.png" alt="Gear that supports the gear">
             </a>
             <figcaption>
@@ -161,7 +161,7 @@
           </figure>
 
           <figure data-cat="Father’s Day">
-            <a href="all-in-the-kit-fday-e4.html" target="_blank" rel="noopener" data-title="It’s all in the Kit">
+            <a href="all-in-the-kit-fday-e4.html" data-title="It’s all in the Kit">
               <img class="thumb" src="./all-in-the-kit-fday-e4.png" alt="It's all in the Kit">
             </a>
             <figcaption>
@@ -181,7 +181,7 @@
         <div class="section-head"><div class="section-title">Foot Health Month</div></div>
         <div class="grid">
           <figure data-cat="Foot Health Month">
-            <a href="foot-health-2.html" target="_blank" rel="noopener" data-title="Full-foot calm">
+            <a href="foot-health-2.html" data-title="Full-foot calm">
               <img class="thumb" src="./foot-health-2.png" alt="Full-foot calm">
             </a>
             <figcaption>
@@ -194,7 +194,7 @@
           </figure>
 
           <figure data-cat="Foot Health Month">
-            <a href="foot-health-4.html" target="_blank" rel="noopener" data-title="Footnotes">
+            <a href="foot-health-4.html" data-title="Footnotes">
               <img class="thumb" src="./foot-health-4.png" alt="Footnotes">
             </a>
             <figcaption>
@@ -214,7 +214,7 @@
         <div class="section-head"><div class="section-title">Seasonal</div></div>
         <div class="grid">
           <figure data-cat="Seasonal">
-            <a href="october-reset.html" target="_blank" rel="noopener" data-title="October reset">
+            <a href="october-reset.html" data-title="October reset">
               <img class="thumb" src="./october-reset.png" alt="October reset">
             </a>
             <figcaption>
@@ -227,7 +227,7 @@
           </figure>
 
           <figure data-cat="Seasonal">
-            <a href="fall-bogo.html" target="_blank" rel="noopener" data-title="Fall BOGO">
+            <a href="fall-bogo.html" data-title="Fall BOGO">
               <img class="thumb" src="./fall-bogo.png" alt="Fall BOGO">
             </a>
             <figcaption>
@@ -240,7 +240,7 @@
           </figure>
 
           <figure data-cat="Seasonal">
-            <a href="extra-glo-extra-off.html" target="_blank" rel="noopener" data-title="Extra off. Extra glo.">
+            <a href="extra-glo-extra-off.html" data-title="Extra off. Extra glo.">
               <img class="thumb" src="./extra-glo-extra-off.png" alt="Extra off. Extra glo.">
             </a>
             <figcaption>
@@ -260,7 +260,7 @@
         <div class="section-head"><div class="section-title">Black Friday</div></div>
         <div class="grid">
           <figure data-cat="Black Friday">
-            <a href="blkfri-55-off-wraps.html" target="_blank" rel="noopener" data-title="Wraps">
+            <a href="blkfri-55-off-wraps.html" data-title="Wraps">
               <img class="thumb" src="./blkfri-55-off-wraps.png" alt="Wraps">
             </a>
             <figcaption>
@@ -273,7 +273,7 @@
           </figure>
 
           <figure data-cat="Black Friday">
-            <a href="blkfri-70-off-devices.html" target="_blank" rel="noopener" data-title="Black Friday">
+            <a href="blkfri-70-off-devices.html" data-title="Black Friday">
               <img class="thumb" src="./blkfri-70-off-devices.png" alt="Black Friday">
             </a>
             <figcaption>
@@ -296,27 +296,25 @@
       <div class="grid">
         <figure class="project-duo" data-cat="Web • Brand • UX">
           <div class="thumb-row">
-            <a href="https://thehealingpath.co" target="_blank" rel="noopener" data-title="The Healing Path — mobile view">
+            <!-- No external links; clicking opens BIG image in modal -->
+            <a href="./thp-mobile-web.png" data-title="The Healing Path — mobile view">
               <img class="thumb" src="./thp-mobile-web.png" alt="The Healing Path — mobile view">
             </a>
-            <a href="https://thehealingpath.co" target="_blank" rel="noopener" data-title="The Healing Path — desktop view">
+            <a href="./thp-dsktp-web.png" data-title="The Healing Path — desktop view">
               <img class="thumb" src="./thp-dsktp-web.png" alt="The Healing Path — desktop view">
             </a>
           </div>
 
           <figcaption>
             <div class="capline">
-              <span class="amulet" data-href="https://thehealingpath.co" aria-label="Open site"></span>
+              <!-- Amulet opens the desktop image large -->
+              <span class="amulet" data-href="./thp-dsktp-web.png" aria-label="Open large preview"></span>
               <h3 class="title">The Healing Path — brand & website</h3>
             </div>
           </figcaption>
 
           <div class="subtitle">Web • Brand • UX</div>
-
-          <div class="actions-left">
-            <a class="btn link" href="https://thehealingpath.co" target="_blank" rel="noopener">Visit website</a>
-            <a class="btn" href="https://thehealingpath.co" target="_blank" rel="noopener">Open full</a>
-          </div>
+          <div class="muted-note">Website temporarily offline — previews only</div>
         </figure>
       </div>
 
@@ -329,7 +327,7 @@
     </footer>
   </div>
 
-  <!-- Modal (for local email previews) -->
+  <!-- Modal -->
   <div class="modal" id="modal" aria-hidden="true" hidden>
     <div class="panel" role="dialog" aria-modal="true">
       <header>
@@ -337,7 +335,10 @@
         <div class="c" id="m-cat">• Category</div>
         <button class="x" id="m-close" aria-label="Close">Close</button>
       </header>
-      <div class="frame"><iframe id="m-frame" title="Preview"></iframe></div>
+      <div class="frame">
+        <iframe id="m-frame" title="Preview"></iframe>
+        <div class="imgview" id="m-imgwrap"><img id="m-img" alt="Preview image"/></div>
+      </div>
       <div class="actions">
         <a id="m-open" class="btn" target="_blank" rel="noopener">Open full</a>
       </div>
@@ -345,48 +346,67 @@
   </div>
 
   <script>
-    // Tiny error guard so one exception never kills the page
     (function(){
       function safe(fn){ try{ fn(); } catch(e){ console && console.error && console.error(e); } }
 
       // Modal elements
-      var modal = document.getElementById('modal');
+      var modal  = document.getElementById('modal');
       var mTitle = document.getElementById('m-title');
       var mCat   = document.getElementById('m-cat');
       var mFrame = document.getElementById('m-frame');
       var mOpen  = document.getElementById('m-open');
       var mClose = document.getElementById('m-close');
+      var mImgWrap = document.getElementById('m-imgwrap');
+      var mImg   = document.getElementById('m-img');
+
+      function isImage(href){ return /\.(png|jpe?g|webp|gif|svg)$/i.test(href||''); }
+
+      function showIframe(src){
+        mImgWrap.style.display = 'none';
+        mFrame.style.display   = 'block';
+        mFrame.src = src;
+      }
+      function showImage(src){
+        mFrame.removeAttribute('src');
+        mFrame.style.display   = 'none';
+        mImgWrap.style.display = 'block';
+        mImg.src = src;
+      }
 
       function openModal(title, cat, href){
         mTitle.textContent = title || '';
-        mCat.textContent = cat ? ('• ' + cat) : '';
+        mCat.textContent   = cat ? ('• ' + cat) : '';
         mOpen.href = href || '#';
 
-        // On file:// origins, some Chrome setups can be weird about iframes to other local files.
-        // If we're on file://, just open a new tab instead of using the iframe.
-        if (location.protocol === 'file:'){
-          window.open(href, '_blank', 'noopener');
-          return;
+        if (isImage(href)){
+          showImage(href);
+        } else {
+          // On file:// origins, iframes to local files can be odd; open new tab instead
+          if (location.protocol === 'file:'){
+            window.open(href, '_blank', 'noopener');
+            return;
+          }
+          showIframe(href);
         }
 
-        mFrame.src = href || '';
         modal.hidden = false;
         modal.classList.add('open');
         modal.setAttribute('aria-hidden','false');
       }
+
       function closeModal(){
         modal.classList.remove('open');
         modal.setAttribute('aria-hidden','true');
         modal.hidden = true;
         mFrame.removeAttribute('src');
+        mImg.removeAttribute('src');
       }
 
       safe(function(){
         document.addEventListener('click', function(e){
-          // Close when clicking backdrop
           if(e.target === modal){ closeModal(); return; }
 
-          // Amulet click (open preview or external site)
+          // Amulet click
           var am = e.target.closest ? e.target.closest('.amulet') : null;
           if(am){
             var fig = am.closest('figure');
@@ -394,25 +414,19 @@
             var href = am.getAttribute('data-href') || (a ? a.getAttribute('href') : '');
             var title = (a && a.getAttribute('data-title')) || '';
             var cat = (fig && fig.getAttribute('data-cat')) || '';
-            if(href && /^https?:\/\//.test(href)){
-              window.open(href, '_blank', 'noopener');
-            }else if(href){
-              openModal(title, cat, href);
-            }
+            if(href){ openModal(title, cat, href); }
             return;
           }
 
-          // Thumbnail link click => modal (for local email html); but let cmd/ctrl click pass through
+          // Thumbnail link click => modal (emails = html; THP = images)
           var link = e.target.closest ? e.target.closest('a') : null;
           if(link && link.querySelector && link.querySelector('.thumb') && !(e.metaKey||e.ctrlKey)){
-            var fig2 = link.closest('figure');
-            var isExternal = /^https?:\/\//.test(link.getAttribute('href')||'');
-            if(!isExternal){
-              e.preventDefault();
-              var t = link.getAttribute('data-title') || '';
-              var c = (fig2 && fig2.getAttribute('data-cat')) || '';
-              openModal(t,c,link.getAttribute('href'));
-            }
+            e.preventDefault();
+            var fig2  = link.closest('figure');
+            var t     = link.getAttribute('data-title') || '';
+            var c     = (fig2 && fig2.getAttribute('data-cat')) || '';
+            var href2 = link.getAttribute('href') || '';
+            if(href2){ openModal(t,c,href2); }
           }
         });
 
@@ -420,7 +434,7 @@
         mClose.addEventListener('click', closeModal);
       });
 
-      // Two-tab toggle
+      // Tabs
       var navEmail  = document.getElementById('nav-email');
       var navWeb    = document.getElementById('nav-web');
       var emailWrap = document.getElementById('email-sections');
@@ -432,10 +446,8 @@
         webWrap.hidden   =  isEmail;
         navEmail.classList.toggle('current', isEmail);
         navWeb.classList.toggle('current', !isEmail);
-        // Simple, compatible scroll
         window.scrollTo(0,0);
       }
-
       safe(function(){
         navEmail.addEventListener('click', function(){ setMode('email'); });
         navWeb  .addEventListener('click', function(){ setMode('web');   });
