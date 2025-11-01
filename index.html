@@ -96,10 +96,10 @@
     .btn{font-size:var(--fs-s); padding:8px 12px; border:1px solid var(--ink); border-radius:9px; background:#fff; cursor:pointer; text-decoration:none}
 
     /* Web & Brand: single project with two large views */
-    #webbrand-section .grid{grid-template-columns:1fr;} /* one big card */
+    #webbrand-section .grid{grid-template-columns:1fr;}
     .project-duo .thumb-row{
       display:grid; gap:16px;
-      grid-template-columns:1.1fr .9fr;  /* desktop slightly wider than mobile */
+      grid-template-columns:1.1fr .9fr;
     }
     .project-duo .thumb{aspect-ratio:16/10;}
     @media (max-width:760px){
@@ -122,6 +122,27 @@
 
     <!-- ================= EMAIL COLLECTION ================= -->
     <main id="email-sections">
+
+      <!-- New Drop (added to top) -->
+      <section id="new-drop">
+        <div class="section-head"><div class="section-title">New Drop</div></div>
+        <div class="grid">
+          <figure data-cat="New Drop">
+            <a href="ocuwave-drop.html" data-title="Meet OcuWave">
+              <img class="thumb" src="./ocuwave-drop.png" alt="Meet OcuWave">
+            </a>
+            <figcaption>
+              <div class="capline">
+                <span class="amulet" data-href="ocuwave-drop.html" aria-label="Preview"></span>
+                <h3 class="title">Meet OcuWave</h3>
+              </div>
+            </figcaption>
+            <div class="subtitle">Campaign • New Drop</div>
+          </figure>
+        </div>
+        <div class="rule"></div>
+      </section>
+
       <!-- Labor Day -->
       <section id="labor-day">
         <div class="section-head"><div class="section-title">Labor Day</div></div>
@@ -295,7 +316,7 @@
       <div class="grid">
         <figure class="project-duo" data-cat="Web • Brand • UX">
           <div class="thumb-row">
-            <!-- No external links; clicking opens BIG image in modal -->
+            <!-- Previews only -->
             <a href="./thp-mobile-web.png" data-title="The Healing Path — mobile view">
               <img class="thumb" src="./thp-mobile-web.png" alt="The Healing Path — mobile view">
             </a>
@@ -306,7 +327,6 @@
 
           <figcaption>
             <div class="capline">
-              <!-- Amulet opens the desktop image large -->
               <span class="amulet" data-href="./thp-dsktp-web.png" aria-label="Open large preview"></span>
               <h3 class="title">The Healing Path — brand & website</h3>
             </div>
@@ -380,7 +400,6 @@
         if (isImage(href)){
           showImage(href);
         } else {
-          // On file:// origins, iframes to local files can be odd; open new tab instead
           if (location.protocol === 'file:'){
             window.open(href, '_blank', 'noopener');
             return;
@@ -417,7 +436,7 @@
             return;
           }
 
-          // Thumbnail link click => modal (emails = html; THP = images)
+          // Thumbnail link click => modal
           var link = e.target.closest ? e.target.closest('a') : null;
           if(link && link.querySelector && link.querySelector('.thumb') && !(e.metaKey||e.ctrlKey)){
             e.preventDefault();
