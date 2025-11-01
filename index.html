@@ -40,7 +40,6 @@
       margin:0; font-weight:600; letter-spacing:-.2px; font-size:var(--fs-xl); line-height:1.2;
       font-family:"Lato","Lucida Grande","Lucida Sans Unicode","Lucida Sans",sans-serif;
     }
-    .brand small{display:block; margin-top:6px; font-size:var(--fs-xs); color:var(--muted); letter-spacing:.3px}
     .meta-nav{font-size:var(--fs-xs); color:var(--muted); display:flex; gap:8px; flex-wrap:wrap}
     .meta-nav button{
       padding:6px 10px; border:1px solid var(--rule); border-radius:999px; background:#fff; cursor:pointer;
@@ -64,7 +63,7 @@
     }
     a:hover .thumb{transform:translateY(-2px); filter:saturate(1.02)}
 
-    /* Caption: amulet + title on ONE line w/ ellipsis */
+    /* Caption */
     figcaption{display:flex; align-items:center}
     .capline{display:flex; align-items:center; gap:8px; min-width:0; flex:1 1 auto}
     .amulet{
@@ -80,7 +79,7 @@
 
     footer{border-top:1px solid var(--rule); margin-top:40px; padding:18px 0; font-size:var(--fs-xs); color:var(--muted); display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap}
 
-    /* Modal (supports iframe OR large image) */
+    /* Modal */
     .modal{position:fixed; inset:0; display:none; place-items:center; background:rgba(10,10,10,.66); z-index:50}
     .modal.open{display:grid}
     .panel{width:min(1000px,92vw); height:min(86vh,900px); background:#fff; border-radius:12px; overflow:hidden; display:flex; flex-direction:column; border:1px solid var(--rule)}
@@ -95,16 +94,10 @@
     .actions{border-top:1px solid var(--rule); padding:10px 12px; display:flex; justify-content:flex-end; gap:8px}
     .btn{font-size:var(--fs-s); padding:8px 12px; border:1px solid var(--ink); border-radius:9px; background:#fff; cursor:pointer; text-decoration:none}
 
-    /* Web & Brand: single project with two large views */
+    /* Web & Brand */
     #webbrand-section .grid{grid-template-columns:1fr;}
-    .project-duo .thumb-row{
-      display:grid; gap:16px;
-      grid-template-columns:1.1fr .9fr;
-    }
-    .project-duo .thumb{aspect-ratio:16/10;}
-    @media (max-width:760px){
-      .project-duo .thumb-row{grid-template-columns:1fr; gap:12px;}
-    }
+    .project-duo .thumb-row{display:grid; gap:16px; grid-template-columns:1.1fr .9fr;}
+    @media (max-width:760px){.project-duo .thumb-row{grid-template-columns:1fr; gap:12px;}}
     .muted-note{font-size:var(--fs-xxs); color:var(--muted)}
   </style>
 </head>
@@ -123,7 +116,7 @@
     <!-- ================= EMAIL COLLECTION ================= -->
     <main id="email-sections">
 
-      <!-- New Drop (added to top) -->
+      <!-- New Drop -->
       <section id="new-drop">
         <div class="section-head"><div class="section-title">New Drop</div></div>
         <div class="grid">
@@ -133,11 +126,11 @@
             </a>
             <figcaption>
               <div class="capline">
-                <span class="amulet" data-href="ocuwave-drop.html" aria-label="Preview"></span>
+                <span class="amulet" data-href="ocuwave-drop.html"></span>
                 <h3 class="title">Meet OcuWave</h3>
               </div>
             </figcaption>
-            <div class="subtitle">Campaign • New Drop</div>
+            <div class="subtitle">New Drop</div>
           </figure>
         </div>
         <div class="rule"></div>
@@ -153,11 +146,11 @@
             </a>
             <figcaption>
               <div class="capline">
-                <span class="amulet" data-href="laborday-e1.html" aria-label="Preview"></span>
+                <span class="amulet" data-href="laborday-e1.html"></span>
                 <h3 class="title">Labor Day → Less labor for your body</h3>
               </div>
             </figcaption>
-            <div class="subtitle">Campaign • Labor Day</div>
+            <div class="subtitle">Labor Day</div>
           </figure>
         </div>
         <div class="rule"></div>
@@ -177,7 +170,7 @@
                 <h3 class="title">Gear that supports the gear</h3>
               </div>
             </figcaption>
-            <div class="subtitle">Campaign • Father’s Day</div>
+            <div class="subtitle">Father’s Day</div>
           </figure>
 
           <figure data-cat="Father’s Day">
@@ -190,7 +183,7 @@
                 <h3 class="title">It’s all in the Kit</h3>
               </div>
             </figcaption>
-            <div class="subtitle">Campaign • Father’s Day</div>
+            <div class="subtitle">Father’s Day</div>
           </figure>
         </div>
         <div class="rule"></div>
@@ -210,7 +203,7 @@
                 <h3 class="title">Full-foot calm</h3>
               </div>
             </figcaption>
-            <div class="subtitle">Campaign • Foot Health Month</div>
+            <div class="subtitle">Foot Health Month</div>
           </figure>
 
           <figure data-cat="Foot Health Month">
@@ -223,7 +216,7 @@
                 <h3 class="title">Footnotes</h3>
               </div>
             </figcaption>
-            <div class="subtitle">Campaign • Foot Health Month</div>
+            <div class="subtitle">Foot Health Month</div>
           </figure>
         </div>
         <div class="rule"></div>
@@ -243,7 +236,7 @@
                 <h3 class="title">October reset</h3>
               </div>
             </figcaption>
-            <div class="subtitle">Campaign • Seasonal</div>
+            <div class="subtitle">Seasonal</div>
           </figure>
 
           <figure data-cat="Seasonal">
@@ -256,7 +249,7 @@
                 <h3 class="title">Fall BOGO</h3>
               </div>
             </figcaption>
-            <div class="subtitle">Campaign • Seasonal</div>
+            <div class="subtitle">Seasonal</div>
           </figure>
 
           <figure data-cat="Seasonal">
@@ -269,7 +262,7 @@
                 <h3 class="title">Extra off. Extra glo.</h3>
               </div>
             </figcaption>
-            <div class="subtitle">Campaign • Seasonal</div>
+            <div class="subtitle">Seasonal</div>
           </figure>
         </div>
         <div class="rule"></div>
@@ -289,7 +282,7 @@
                 <h3 class="title">Wraps</h3>
               </div>
             </figcaption>
-            <div class="subtitle">Campaign • Black Friday</div>
+            <div class="subtitle">Black Friday</div>
           </figure>
 
           <figure data-cat="Black Friday">
@@ -302,7 +295,7 @@
                 <h3 class="title">Black Friday</h3>
               </div>
             </figcaption>
-            <div class="subtitle">Campaign • Black Friday</div>
+            <div class="subtitle">Black Friday</div>
           </figure>
         </div>
         <div class="rule"></div>
@@ -316,7 +309,7 @@
       <div class="grid">
         <figure class="project-duo" data-cat="Web • Brand • UX">
           <div class="thumb-row">
-            <!-- Previews only -->
+            <!-- No external links; clicking opens BIG image in modal -->
             <a href="./thp-mobile-web.png" data-title="The Healing Path — mobile view">
               <img class="thumb" src="./thp-mobile-web.png" alt="The Healing Path — mobile view">
             </a>
@@ -327,6 +320,7 @@
 
           <figcaption>
             <div class="capline">
+              <!-- Amulet opens the desktop image large -->
               <span class="amulet" data-href="./thp-dsktp-web.png" aria-label="Open large preview"></span>
               <h3 class="title">The Healing Path — brand & website</h3>
             </div>
@@ -436,7 +430,7 @@
             return;
           }
 
-          // Thumbnail link click => modal
+          // Thumbnail link click => modal (emails = html; THP = images)
           var link = e.target.closest ? e.target.closest('a') : null;
           if(link && link.querySelector && link.querySelector('.thumb') && !(e.metaKey||e.ctrlKey)){
             e.preventDefault();
@@ -466,6 +460,7 @@
         navWeb.classList.toggle('current', !isEmail);
         window.scrollTo(0,0);
       }
+
       safe(function(){
         navEmail.addEventListener('click', function(){ setMode('email'); });
         navWeb  .addEventListener('click', function(){ setMode('web');   });
@@ -474,6 +469,11 @@
       // init
       setMode('email');
       document.getElementById('year').textContent = new Date().getFullYear();
+
+      // Remove leading "Campaign • " if it appears in any subtitle (defensive)
+      document.querySelectorAll('.subtitle').forEach(function(el){
+        el.textContent = el.textContent.replace(/^\s*Campaign\s*•\s*/i, '');
+      });
     })();
   </script>
 </body>
