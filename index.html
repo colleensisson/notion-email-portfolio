@@ -40,6 +40,12 @@
       margin:0; font-weight:600; letter-spacing:-.2px; font-size:var(--fs-xl); line-height:1.2;
       font-family:"Lato","Lucida Grande","Lucida Sans Unicode","Lucida Sans",sans-serif;
     }
+    .brand .tagline{
+      margin:6px 0 0;
+      font-size:var(--fs-s);
+      color:var(--muted);
+      max-width:440px;
+    }
     .meta-nav{font-size:var(--fs-xs); color:var(--muted); display:flex; gap:8px; flex-wrap:wrap}
     .meta-nav button{
       padding:6px 10px; border:1px solid var(--rule); border-radius:999px; background:#fff; cursor:pointer;
@@ -77,7 +83,14 @@
     }
     .subtitle{font-size:var(--fs-xs); color:var(--muted); letter-spacing:.02em}
 
-    footer{border-top:1px solid var(--rule); margin-top:40px; padding:18px 0; font-size:var(--fs-xs); color:var(--muted); display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap}
+    footer{
+      border-top:1px solid var(--rule);
+      margin-top:40px;
+      padding:18px 0;
+      font-size:var(--fs-xs);
+      color:var(--muted);
+      display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap
+    }
 
     /* Modal */
     .modal{position:fixed; inset:0; display:none; place-items:center; background:rgba(10,10,10,.66); z-index:50}
@@ -106,10 +119,11 @@
     <header>
       <div class="brand">
         <h1>Colleen Sisson</h1>
+        <p class="tagline">Creative marketing designer focused on email, lifecycle, and product-led campaigns for ecommerce and wellness brands.</p>
       </div>
       <nav class="meta-nav" aria-label="Sections">
         <button id="nav-email" class="current" type="button">Email design</button>
-        <button id="nav-web" type="button">Web & brand design</button>
+        <button id="nav-web" type="button">Web &amp; brand design</button>
       </nav>
     </header>
 
@@ -130,7 +144,7 @@
                 <h3 class="title">Meet OcuWave</h3>
               </div>
             </figcaption>
-            <div class="subtitle">New Drop</div>
+            <div class="subtitle">Product launch email introducing the OcuWave eye massager with calm, device-first imagery.</div>
           </figure>
         </div>
         <div class="rule"></div>
@@ -150,7 +164,7 @@
                 <h3 class="title">Labor Day → Less labor for your body</h3>
               </div>
             </figcaption>
-            <div class="subtitle">Labor Day</div>
+            <div class="subtitle">Labor Day campaign that reframes recovery as “less labor” on the body with close-up product-in-use shots.</div>
           </figure>
         </div>
         <div class="rule"></div>
@@ -170,7 +184,7 @@
                 <h3 class="title">Gear that supports the gear</h3>
               </div>
             </figcaption>
-            <div class="subtitle">Father’s Day</div>
+            <div class="subtitle">Father’s Day email positioning wraps and add-ons as “gear that supports the gear” for practical gifting.</div>
           </figure>
 
           <figure data-cat="Father’s Day">
@@ -183,7 +197,7 @@
                 <h3 class="title">It’s all in the Kit</h3>
               </div>
             </figcaption>
-            <div class="subtitle">Father’s Day</div>
+            <div class="subtitle">Follow-up campaign highlighting fully built kits and bundles to make gift decisions effortless.</div>
           </figure>
         </div>
         <div class="rule"></div>
@@ -203,7 +217,7 @@
                 <h3 class="title">Full-foot calm</h3>
               </div>
             </figcaption>
-            <div class="subtitle">Foot Health Month</div>
+            <div class="subtitle">Educational Foot Health Month email that pairs anatomy-led copy with grounded, calming visuals.</div>
           </figure>
 
           <figure data-cat="Foot Health Month">
@@ -216,7 +230,7 @@
                 <h3 class="title">Footnotes</h3>
               </div>
             </figcaption>
-            <div class="subtitle">Foot Health Month</div>
+            <div class="subtitle">Story-driven follow-up that breaks down small “footnote” habits to keep people moving with less pain.</div>
           </figure>
         </div>
         <div class="rule"></div>
@@ -236,7 +250,7 @@
                 <h3 class="title">October reset</h3>
               </div>
             </figcaption>
-            <div class="subtitle">Seasonal</div>
+            <div class="subtitle">Early Q4 “reset” campaign that positions devices as part of a clean slate before holiday chaos hits.</div>
           </figure>
 
           <figure data-cat="Seasonal">
@@ -249,7 +263,7 @@
                 <h3 class="title">Fall BOGO</h3>
               </div>
             </figcaption>
-            <div class="subtitle">Seasonal</div>
+            <div class="subtitle">Seasonal BOGO promotion designed to drive repeat purchases and move core devices ahead of peak season.</div>
           </figure>
 
           <figure data-cat="Seasonal">
@@ -262,7 +276,7 @@
                 <h3 class="title">Extra off. Extra glo.</h3>
               </div>
             </figcaption>
-            <div class="subtitle">Seasonal</div>
+            <div class="subtitle">Offer-led campaign that pairs deeper discounts with softer skincare and recovery imagery for a “glo” story.</div>
           </figure>
         </div>
         <div class="rule"></div>
@@ -282,7 +296,7 @@
                 <h3 class="title">Wraps</h3>
               </div>
             </figcaption>
-            <div class="subtitle">Black Friday</div>
+            <div class="subtitle">Black Friday spotlight on wraps and accessories to lift average order value alongside core devices.</div>
           </figure>
 
           <figure data-cat="Black Friday">
@@ -295,7 +309,7 @@
                 <h3 class="title">Black Friday</h3>
               </div>
             </figcaption>
-            <div class="subtitle">Black Friday</div>
+            <div class="subtitle">Primary Black Friday device campaign anchoring the steepest discount of the year on flagship products.</div>
           </figure>
         </div>
         <div class="rule"></div>
@@ -304,7 +318,7 @@
 
     <!-- ================ WEB & BRAND (single project) ================ -->
     <section id="webbrand-section" hidden>
-      <div class="section-head"><div class="section-title">Web & brand design</div></div>
+      <div class="section-head"><div class="section-title">Web &amp; brand design</div></div>
 
       <div class="grid">
         <figure class="project-duo" data-cat="Web • Brand • UX">
@@ -322,11 +336,11 @@
             <div class="capline">
               <!-- Amulet opens the desktop image large -->
               <span class="amulet" data-href="./thp-dsktp-web.png" aria-label="Open large preview"></span>
-              <h3 class="title">The Healing Path — brand & website</h3>
+              <h3 class="title">The Healing Path — brand &amp; website</h3>
             </div>
           </figcaption>
 
-          <div class="subtitle">Web • Brand • UX</div>
+          <div class="subtitle">Web • Brand • UX · Brand and website launch for a wellness studio, built on Wix with Mindbody integration.</div>
           <div class="muted-note">Website temporarily offline — previews only</div>
         </figure>
       </div>
@@ -336,7 +350,7 @@
 
     <footer>
       <div>© <span id="year"></span> Colleen Sisson</div>
-      <div>Portfolio</div>
+      <div>Open to roles in email design, lifecycle, and product-led brand design.</div>
     </footer>
   </div>
 
